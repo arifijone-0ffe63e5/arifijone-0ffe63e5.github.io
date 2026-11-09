@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛主题大赛寸止挑战在线观看 - 赛事回看与挑战规则聚合</title>
+<meta name="description" content="每日大赛主题大赛寸止挑战在线观看，聚合主题赛程、寸止挑战规则、在线回看入口与选手表现点评，涵盖新手到进阶的挑战玩法与评分维度，适合关注赛事动态与挑战技巧的观众查阅。">
+<meta name="keywords" content="主题赛程表,寸止挑战规则,挑战回看,选手表现点评,赛事玩法">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1d2e'/%3E%3Cpath d='M18 44V20h7v17h21v7z' fill='%23ffb547'/%3E%3Ccircle cx='46' cy='22' r='6' fill='%234dd4ac'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0f1220;
+  --bg-soft:#161a2c;
+  --panel:#1c2136;
+  --panel-2:#232a44;
+  --line:#2e3550;
+  --text:#e8eaf2;
+  --text-dim:#a3a9c2;
+  --text-mute:#7a819c;
+  --brand:#ffb547;
+  --brand-2:#4dd4ac;
+  --brand-3:#7c8cff;
+  --danger:#ff6b7a;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow:0 8px 26px rgba(0,0,0,.35);
+  --maxw:1360px;
+  --head-h:112px;
+  --gap:22px;
+  --font:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head-h) + 14px)}
+body{
+  margin:0;background:radial-gradient(1200px 600px at 80% -10%,#20294a 0%,var(--bg) 55%) no-repeat,var(--bg);
+  color:var(--text);font-family:var(--font);font-size:15px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0 0 12px}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--brand-2);outline-offset:3px;border-radius:4px}
+
+/* ===== 吸顶公告条 ===== */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:linear-gradient(90deg,#2a2010,#3a2a12 40%,#1d2438);
+  border-bottom:1px solid #4a3a18;
+}
+.topbar-in{
+  max-width:var(--maxw);margin:0 auto;padding:8px 20px;
+  display:flex;align-items:center;gap:12px;font-size:13px;color:#ffe0a8;
+  overflow:hidden;white-space:nowrap;
+}
+.topbar .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);flex:0 0 auto;box-shadow:0 0 0 3px rgba(255,181,71,.18)}
+.topbar-track{display:flex;gap:26px;overflow:hidden;flex:1;mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent)}
+.topbar-track span{flex:0 0 auto}
+.topbar b{color:#fff;font-weight:600}
+.topbar .tag{background:rgba(255,181,71,.16);border:1px solid rgba(255,181,71,.35);color:var(--brand);border-radius:20px;padding:1px 9px;font-size:12px;flex:0 0 auto}
+
+/* ===== 吸顶页头 ===== */
+.site-head{
+  position:sticky;top:34px;z-index:55;
+  background:rgba(15,18,32,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.head-in{
+  max-width:var(--maxw);margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;gap:18px;
+}
+.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto;min-width:0}
+.brand-mark{width:42px;height:42px;flex:0 0 auto}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand-text .name{font-size:16.5px;font-weight:800;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-text .sub{font-size:11px;color:var(--text-mute);letter-spacing:1.4px}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:6px}
+.main-nav a{
+  padding:6px 11px;border-radius:8px;font-size:13.5px;color:var(--text-dim);
+  transition:.16s;border:1px solid transparent;
+}
+.main-nav a:hover{color:#fff;background:var(--panel);border-color:var(--line)}
+.head-tools{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search-box{position:relative;display:flex;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:0 10px;height:38px}
+.search-box svg{flex:0 0 auto;color:var(--text-mute)}
+.search-box input{
+  border:0;background:transparent;color:var(--text);font-size:13.5px;outline:none;
+  width:150px;padding:0 8px;font-family:inherit;
+}
+.search-box input::placeholder{color:var(--text-mute)}
+.btn-cta{
+  display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 16px;border-radius:10px;
+  background:linear-gradient(135deg,var(--brand),#ff9d2e);color:#1a1205;font-weight:700;font-size:13.5px;
+  border:0;white-space:nowrap;transition:.18s;
+}
+.btn-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.menu-btn{display:none;width:38px;height:38px;border-radius:9px;background:var(--panel);border:1px solid var(--line);color:var(--text);align-items:center;justify-content:center}
+
+/* ===== 首屏 ===== */
+.hero{
+  max-width:var(--maxw);margin:0 auto;padding:34px 20px 10px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;background:rgba(77,212,172,.1);
+  border:1px solid rgba(77,212,172,.32);color:var(--brand-2);
+  border-radius:30px;padding:4px 14px;font-size:12.5px;margin-bottom:16px;letter-spacing:.4px;
+}
+.hero h1{
+  font-size:clamp(26px,3.4vw,42px);letter-spacing:.5px;line-height:1.25;margin-bottom:16px;
+  background:linear-gradient(96deg,#fff 0%,#ffd9a0 60%,var(--brand) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-desc{color:var(--text-dim);font-size:15px;max-width:600px;margin-bottom:20px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.btn-primary,.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 22px;border-radius:11px;font-size:14.5px;font-weight:600;transition:.18s;border:1px solid transparent;
+}
+.btn-primary{background:linear-gradient(135deg,var(--brand-2),#31b892);color:#04211a}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-ghost{background:var(--panel);border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--brand-2);color:var(--brand-2)}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap}
+.hero-stats .st{display:flex;flex-direction:column;gap:2px}
+.hero-stats .st b{font-size:21px;color:var(--brand);font-weight:800;letter-spacing:.4px}
+.hero-stats .st span{font-size:12px;color:var(--text-mute);letter-spacing:.6px}
+
+/* 首屏视觉 */
+.hero-visual{position:relative;height:330px}
+.hv-card{
+  position:absolute;background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--line);
+  border-radius:16px;box-shadow:var(--shadow);padding:16px;overflow:hidden;
+}
+.hv-card::after{content:"";position:absolute;inset:0;background:radial-gradient(200px 120px at 80% 0%,rgba(124,140,255,.18),transparent 70%);pointer-events:none}
+.hv-1{left:0;top:14px;width:58%;height:210px}
+.hv-2{right:0;top:0;width:44%;height:150px}
+.hv-3{right:6%;bottom:0;width:52%;height:140px}
+.hv-1 .lbl,.hv-2 .lbl,.hv-3 .lbl{font-size:11px;color:var(--text-mute);letter-spacing:1.2px;margin-bottom:8px}
+.hv-1 .big{font-size:24px;font-weight:800;color:#fff;line-height:1.3}
+.hv-1 .big em{font-style:normal;color:var(--brand)}
+.hv-bars{display:flex;align-items:flex-end;gap:7px;height:62px;margin-top:14px}
+.hv-bars i{flex:1;background:linear-gradient(180deg,var(--brand-2),rgba(77,212,172,.18));border-radius:4px 4px 0 0}
+.hv-2 .row{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--text-dim);padding:6px 0;border-bottom:1px dashed var(--line)}
+.hv-2 .row:last-child{border-bottom:0}
+.hv-2 .row b{color:var(--brand-2);font-weight:700}
+.hv-3 .ring{display:flex;align-items:center;gap:12px}
+.hv-3 svg{flex:0 0 auto}
+.hv-3 .ring-txt{font-size:12px;color:var(--text-dim);line-height:1.5}
+.hv-3 .ring-txt b{display:block;color:#fff;font-size:15px}
+
+/* ===== 三栏门户 ===== */
+.layout{
+  max-width:var(--maxw);margin:0 auto;padding:26px 20px 60px;
+  display:grid;grid-template-columns:186px minmax(0,1fr) 262px;gap:var(--gap);align-items:start;
+}
+.col-left{position:sticky;top:calc(34px + 78px);display:flex;flex-direction:column;gap:16px}
+.col-right{position:sticky;top:calc(34px + 78px);display:flex;flex-direction:column;gap:16px}
+.channel-nav{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 10px}
+.channel-nav h2{font-size:12px;color:var(--text-mute);letter-spacing:2px;font-weight:600;padding:0 8px 9px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.channel-nav a{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:7px 9px;border-radius:8px;font-size:13.5px;color:var(--text-dim);transition:.15s;
+}
+.channel-nav a:hover{background:var(--panel-2);color:#fff}
+.channel-nav a .n{font-size:11px;color:var(--text-mute);background:var(--bg-soft);border-radius:20px;padding:1px 7px}
+.channel-nav a:hover .n{color:var(--brand-2)}
+.mini-note{background:linear-gradient(160deg,#1e2a3a,#1a2136);border:1px solid var(--line);border-radius:var(--radius);padding:14px;font-size:12.5px;color:var(--text-dim)}
+.mini-note b{display:block;color:var(--brand);font-size:13px;margin-bottom:6px;letter-spacing:.5px}
+
+.main-col{display:flex;flex-direction:column;gap:34px;min-width:0}
+
+/* 通用板块 */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.sec-head h2{font-size:20px;letter-spacing:.3px}
+.sec-head h2 .accent{color:var(--brand)}
+.sec-head .sub{font-size:12.5px;color:var(--text-mute)}
+.sec-head .more{font-size:12.5px;color:var(--brand-2);border-bottom:1px dashed transparent}
+.sec-head .more:hover{border-bottom-color:var(--brand-2)}
+.section{scroll-margin-top:calc(var(--head-h) + 14px)}
+.section > .panel-head-only{margin-bottom:16px}
+
+/* 概览 */
+.overview p{color:var(--text-dim);font-size:14.5px;line-height:1.85;margin-bottom:14px}
+.overview p strong{color:var(--text);font-weight:600}
+.overview .kw{color:var(--brand)}
+.overview-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.overview-chips span{font-size:12px;color:var(--brand-2);background:rgba(77,212,172,.09);border:1px solid rgba(77,212,172,.26);border-radius:20px;padding:3px 11px}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{
+  background:var(--panel-2);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  display:flex;flex-direction:column;transition:.18s;
+}
+.card:hover{transform:translateY(-3px);border-color:#3d4a72;box-shadow:var(--shadow)}
+.card .thumb{position:relative;aspect-ratio:4/3;background:#0c0f1a;overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover;opacity:.92;transition:.3s}
+.card:hover .thumb img{opacity:1;transform:scale(1.04)}
+.card .thumb .badge{
+  position:absolute;left:9px;top:9px;font-size:11px;font-weight:700;letter-spacing:.4px;
+  background:rgba(15,18,32,.82);color:var(--brand);border:1px solid rgba(255,181,71,.4);
+  border-radius:6px;padding:2px 8px;backdrop-filter:blur(4px);
+}
+.card .thumb .heat{
+  position:absolute;right:9px;bottom:9px;font-size:11px;color:#fff;
+  background:rgba(255,107,122,.82);border-radius:6px;padding:2px 8px;font-weight:600;
+}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:15px;letter-spacing:.2px}
+.card-body h3 a:hover{color:var(--brand)}
+.card-body .tags{display:flex;flex-wrap:wrap;gap:5px}
+.card-body .tags span{font-size:11px;color:var(--text-mute);background:var(--bg-soft);border-radius:5px;padding:1.5px 7px}
+.card-body .desc{font-size:12.8px;color:var(--text-dim);line-height:1.65;flex:1}
+.card-meta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--text-mute);border-top:1px dashed var(--line);padding-top:8px}
+.card-meta b{color:var(--brand-2);font-weight:600}
+
+/* 动态列表 */
+.updates{display:flex;flex-direction:column;gap:0}
+.updates li{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line);align-items:flex-start}
+.updates li:last-child{border-bottom:0;padding-bottom:0}
+.updates .time{flex:0 0 74px;font-size:12px;color:var(--text-mute);font-variant-numeric:tabular-nums;padding-top:2px}
+.updates .body{flex:1;min-width:0}
+.updates .body b{font-size:14px;color:var(--text);display:block;margin-bottom:2px}
+.updates .body b a:hover{color:var(--brand)}
+.updates .body span{font-size:12.8px;color:var(--text-dim)}
+.updates .pill{flex:0 0 auto;font-size:11px;border-radius:20px;padding:2px 9px;align-self:center;white-space:nowrap}
+.pill.new{background:rgba(77,212,172,.12);color:var(--brand-2);border:1px solid rgba(77,212,172,.3)}
+.pill.live{background:rgba(255,107,122,.12);color:var(--danger);border:1px solid rgba(255,107,122,.3)}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat{
+  background:var(--panel-2);border:1px solid var(--line);border-radius:11px;padding:14px;
+  transition:.16s;display:flex;flex-direction:column;gap:6px;
+}
+.cat:hover{border-color:var(--brand-2);background:#26304e}
+.cat .ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;background:rgba(124,140,255,.15);color:var(--brand-3);font-weight:800}
+.cat b{font-size:14px}
+.cat span{font-size:12px;color:var(--text-mute);line-height:1.55}
+
+/* 筛选条 */
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.filter-bar button{
+  background:var(--panel-2);border:1px solid var(--line);color:var(--text-dim);
+  border-radius:20px;padding:5px 14px;font-size:12.5px;transition:.15s;
+}
+.filter-bar button:hover{border-color:var(--brand-2);color:var(--brand-2)}
+.filter-bar button.active{background:rgba(77,212,172,.14);border-color:rgba(77,212,172,.55);color:var(--brand-2);font-weight:600}
+.filter-empty{display:none;padding:26px;text-align:center;color:var(--text-mute);font-size:13.5px;background:var(--panel-2);border:1px dashed var(--line);border-radius:11px}
+.filter-empty.show{display:block}
+
+/* 深度解析 */
+.deep h2{margin-bottom:16px}
+.deep h3{font-size:16px;color:var(--brand);margin:22px 0 9px;padding-left:11px;border-left:3px solid var(--brand);line-height:1.4}
+.deep h3:first-of-type{margin-top:4px}
+.deep p{color:var(--text-dim);font-size:14.3px;line-height:1.9}
+.deep strong{color:var(--text)}
+.deep ul{margin:6px 0 14px;display:flex;flex-direction:column;gap:7px}
+.deep ul li{padding-left:18px;position:relative;color:var(--text-dim);font-size:14px;line-height:1.8}
+.deep ul li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:2px;background:var(--brand-2);transform:rotate(45deg)}
+.deep .callout{background:linear-gradient(160deg,#1e2a3a,#1a2136);border:1px solid var(--line);border-left:3px solid var(--brand-3);border-radius:10px;padding:14px 16px;margin:16px 0;font-size:13.5px;color:var(--text-dim)}
+.deep .callout b{color:var(--brand-3)}
+
+/* 体验指南 - 编号步骤 */
+.steps{display:flex;flex-direction:column;gap:14px;counter-reset:step}
+.step{display:flex;gap:15px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:15px 17px}
+.step .num{
+  flex:0 0 34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--brand),#ff9d2e);color:#1a1205;font-weight:800;font-size:15px;
+  counter-increment:step;
+}
+.step .num::before{content:counter(step,decimal-leading-zero)}
+.step .txt b{display:block;font-size:14.5px;margin-bottom:3px}
+.step .txt span{font-size:13px;color:var(--text-dim);line-height:1.7}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compare .box{background:var(--panel-2);border:1px solid var(--line);border-radius:11px;padding:16px}
+.compare .box.a{border-top:3px solid var(--brand-2)}
+.compare .box.b{border-top:3px solid var(--brand-3)}
+.compare .box h3{font-size:14.5px;margin-bottom:10px}
+.compare .box ul{display:flex;flex-direction:column;gap:7px}
+.compare .box li{font-size:12.8px;color:var(--text-dim);display:flex;gap:8px;line-height:1.6}
+.compare .box li::before{content:"·";color:var(--brand);font-weight:800}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.15s}
+.faq details[open]{border-color:rgba(77,212,172,.45);background:#232d49}
+.faq summary{
+  list-style:none;cursor:pointer;padding:13px 16px;font-size:14px;font-weight:600;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--brand-2);font-size:19px;font-weight:400;flex:0 0 auto;transition:.2s}
+.faq details[open] summary::after{content:"−"}
+.faq summary:hover{color:var(--brand)}
+.faq .ans{padding:0 16px 15px;font-size:13.2px;color:var(--text-dim);line-height:1.85;border-top:1px dashed var(--line);padding-top:12px;margin:0 16px 15px;padding-left:0;padding-right:0}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cmt{background:var(--panel-2);border:1px solid var(--line);border-radius:11px;padding:13px 15px;display:flex;flex-direction:column;gap:7px}
+.cmt-top{display:flex;align-items:center;gap:9px}
+.avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#0f1220;flex:0 0 auto}
+.cmt-top .nm{font-size:13px;font-weight:600}
+.cmt-top .tm{margin-left:auto;font-size:11px;color:var(--text-mute)}
+.cmt p{font-size:12.9px;color:var(--text-dim);line-height:1.7;margin:0}
+.cmt .ref{font-size:11.5px;color:var(--brand-2);background:rgba(77,212,172,.08);border-radius:5px;padding:1px 7px;align-self:flex-start}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:14px}
+.news{display:flex;gap:14px;background:var(--panel-2);border:1px solid var(--line);border-radius:11px;padding:12px;transition:.16s}
+.news:hover{border-color:#3d4a72}
+.news img{width:112px;height:78px;object-fit:cover;border-radius:8px;flex:0 0 auto}
+.news .n-body{min-width:0;display:flex;flex-direction:column;gap:4px}
+.news .n-body h3{font-size:14px;line-height:1.45}
+.news .n-body h3 a:hover{color:var(--brand)}
+.news .n-body p{font-size:12.6px;color:var(--text-mute);margin:0;line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news .n-body .d{font-size:11.5px;color:var(--text-mute)}
+
+/* 相关推荐 标签索引 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:9px}
+.rec-tags a{
+  font-size:13px;color:var(--text-dim);background:var(--panel-2);border:1px solid var(--line);
+  border-radius:20px;padding:6px 15px;transition:.15s;
+}
+.rec-tags a:hover{color:var(--brand);border-color:rgba(255,181,71,.5);background:rgba(255,181,71,.07)}
+
+/* 榜单 */
+.rank-list{display:flex;flex-direction:column;gap:9px}
+.rank{display:flex;align-items:center;gap:12px;padding:9px 12px;background:var(--panel-2);border:1px solid var(--line);border-radius:9px}
+.rank .no{flex:0 0 26px;font-weight:800;font-size:15px;color:var(--text-mute);font-variant-numeric:tabular-nums}
+.rank:nth-child(1) .no{color:var(--brand)}
+.rank:nth-child(2) .no{color:#d8dce8}
+.rank:nth-child(3) .no{color:#c98a5a}
+.rank .r-name{font-size:13.5px;font-weight:600;min-width:0}
+.rank .r-name span{display:block;font-size:11.5px;color:var(--text-mute);font-weight:400;margin-top:1px}
+.rank .r-score{margin-left:auto;font-size:12.5px;color:var(--brand-2);font-weight:700;flex:0 0 auto}
+
+/* 时间线 */
+.timeline{position:relative;padding-left:22px}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--brand),var(--brand-3),transparent);border-radius:2px}
+.tl-item{position:relative;padding-bottom:16px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-22px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--brand-2)}
+.tl-item b{display:block;font-size:13.5px;margin-bottom:2px}
+.tl-item span{font-size:12.5px;color:var(--text-mute);line-height:1.65}
+
+/* 右侧栏 */
+.side-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.side-card h3{font-size:13.5px;letter-spacing:.6px;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.side-card h3::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--brand);display:inline-block}
+.hot-list{display:flex;flex-direction:column;gap:10px}
+.hot-list li{display:flex;gap:10px;align-items:flex-start;font-size:12.8px;line-height:1.55}
+.hot-list .idx{flex:0 0 18px;height:18px;border-radius:5px;background:var(--panel-2);color:var(--text-mute);font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700;margin-top:2px}
+.hot-list li:nth-child(-n+3) .idx{background:rgba(255,181,71,.16);color:var(--brand)}
+.hot-list a{color:var(--text-dim)}
+.hot-list a:hover{color:var(--brand)}
+.dir-list{display:flex;flex-direction:column;gap:2px}
+.dir-list a{display:flex;align-items:center;justify-content:space-between;padding:7px 8px;border-radius:7px;font-size:12.8px;color:var(--text-dim)}
+.dir-list a:hover{background:var(--panel-2);color:#fff}
+.dir-list a span{font-size:11px;color:var(--text-mute)}
+.side-tip{font-size:12px;color:var(--text-mute);line-height:1.7;background:var(--panel-2);border:1px dashed var(--line);border-radius:9px;padding:10px 12px;margin-top:12px}
+.side-tip b{color:var(--brand-2)}
+
+/* 页尾 */
+.site-foot{border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg-soft),#0c0f1a);margin-top:20px}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:36px 20px 20px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+.foot-brand{display:flex;flex-direction:column;gap:10px}
+.foot-brand .fb-top{display:flex;align-items:center;gap:10px}
+.foot-brand .fb-top .name{font-weight:800;font-size:15px}
+.foot-brand p{font-size:12.5px;color:var(--text-mute);line-height:1.8;margin:0}
+.foot-col h4{font-size:12.5px;color:var(--text-dim);letter-spacing:1.2px;margin-bottom:10px}
+.foot-col a{display:block;font-size:12.5px;color:var(--text-mute);padding:3px 0}
+.foot-col a:hover{color:var(--brand-2)}
+.foot-bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 auto;padding:14px 20px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--text-mute)}
+
+/* 吸底提示（移动端） */
+.mobile-foot-note{display:none}
+
+/* ===== 响应式 ===== */
+@media (max-width:1180px){
+  .layout{grid-template-columns:170px minmax(0,1fr) 236px;gap:18px}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:1024px){
+  :root{--head-h:96px}
+  .topbar-track span:nth-child(n+3){display:none}
+  .layout{grid-template-columns:minmax(0,1fr) 250px;gap:20px}
+  .col-left{display:none}
+  .hero{grid-template-columns:1fr;gap:24px}
+  .hero-visual{height:300px;max-width:520px}
+  .main-nav{display:none}
+  .menu-btn{display:flex}
+  .search-box input{width:120px}
+  .comments{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .col-right{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .foot-in{grid-template-columns:1fr 1fr}
+}
+@media (max-width:740px){
+  body{font-size:14.5px}
+  .topbar-in{padding:7px 14px;font-size:12px}
+  .topbar-track span:nth-child(n+2){display:none}
+  .head-in{padding:10px 14px;gap:10px}
+  .brand-mark{width:36px;height:36px}
+  .brand-text .name{font-size:14.5px}
+  .brand-text .sub{font-size:10px}
+  .search-box{display:none}
+  .btn-cta{height:34px;padding:0 12px;font-size:12.5px}
+  .menu-btn{display:flex}
+  .hero{padding:22px 14px 6px}
+  .hero h1{font-size:26px}
+  .hero-stats{gap:18px}
+  .hero-stats .st b{font-size:18px}
+  .hero-visual{height:260px}
+  .hv-1{width:64%;height:180px}
+  .hv-2{width:42%;height:120px}
+  .hv-3{width:58%;height:118px}
+  .layout{padding:18px 14px 46px}
+  .panel{padding:16px}
+  .card-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .compare{grid-template-columns:1fr}
+  .col-right{grid-template-columns:1fr}
+  .news{flex-direction:column}
+  .news img{width:100%;height:150px}
+  .updates .time{flex:0 0 62px;font-size:11px}
+  .foot-in{grid-template-columns:1fr;padding:26px 14px 16px;gap:20px}
+  .foot-bottom{padding:12px 14px 20px;flex-direction:column;gap:6px}
+  .sec-head h2{font-size:17.5px}
+  .mobile-foot-note{
+    display:block;position:sticky;bottom:0;z-index:40;
+    background:rgba(22,26,44,.95);backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);padding:9px 14px;
+  }
+  .mobile-foot-note a{display:flex;align-items:center;justify-content:center;gap:8px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--brand-2),#31b892);color:#04211a;font-weight:700;font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="topbar" id="topbar">
+  <div class="topbar-in">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="tag">今日更新</span>
+    <div class="topbar-track">
+      <span><b>11 月 8 日</b> 主题大赛第 12 轮寸止挑战回看已上线</span>
+      <span>本周新增 <b>9 条</b> 挑战档案与 3 份评分明细</span>
+      <span>秋季主题赛「静默十秒」规则细则已公布</span>
+      <span>寸止挑战新手入门榜前 20 名名单更新</span>
+    </div>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-head" id="sitehead">
+  <div class="head-in">
+    <a class="brand" href="#top" aria-label="每日大赛主题大赛寸止挑战在线观看 首页">
+      <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="赛事徽标：计时与停顿符号">
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffb547"/><stop offset="1" stop-color="#ff8a2e"/>
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="15" fill="#1a1d2e"/>
+        <rect x="1" y="1" width="62" height="62" rx="14" fill="none" stroke="#3a4260" stroke-width="1.4"/>
+        <circle cx="32" cy="34" r="15" fill="none" stroke="url(#lg1)" stroke-width="3.4" stroke-dasharray="70 24" stroke-linecap="round" transform="rotate(-90 32 34)"/>
+        <rect x="30.4" y="24" width="3.2" height="12" rx="1.6" fill="#4dd4ac"/>
+        <circle cx="32" cy="43" r="2.4" fill="#ffb547"/>
+        <path d="M26 14h12" stroke="#7c8cff" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-text">
+        <span class="name">每日大赛主题大赛寸止挑战在线观看</span>
+        <span class="sub">THEME CUP · PAUSE CHALLENGE</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="主题导航">
+      <a href="#overview">赛事概览</a>
+      <a href="#featured">精选条目</a>
+      <a href="#updates">今日动态</a>
+      <a href="#categories">挑战分类</a>
+      <a href="#deep">规则解析</a>
+      <a href="#guide">观看路径</a>
+      <a href="#faq">常见问答</a>
+      <a href="#rank">实时榜单</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+        <input type="search" id="siteSearch" placeholder="搜条目 / 选手 / 规则" aria-label="站内搜索条目、选手或规则">
+      </div>
+      <a class="btn-cta" href="#featured">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        看回看
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="展开导航菜单">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobileNav" aria-label="移动端导航" style="display:none;padding:0 14px 12px;">
+    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+      <a href="#overview" style="padding:6px 11px;border-radius:8px;background:#1c2136;border:1px solid #2e3550;font-size:12.5px;color:#a3a9c2;">赛事概览</a>
+      <a href="#featured" style="padding:6px 11px;border-radius:8px;background:#1c2136;border:1px solid #2e3550;font-size:12.5px;color:#a3a9c2;">精选条目</a>
+      <a href="#updates" style="padding:6px 11px;border-radius:8px;background:#1c2136;border:1px solid #2e3550;font-size:12.5px;color:#a3a9c2;">今日动态</a>
+      <a href="#categories" style="padding:6px 11px;border-radius:8px;background:#1c2136;border:1px solid #2e3550;font-size:12.5px;color:#a3a9c2;">挑战分类</a>
+      <a href="#deep" style="padding:6px 11px;border-radius:8px;background:#1c2136;border:1px solid #2e3550;font-size:12.5px;color:#a3a9c2;">规则解析</a>
+      <a href="#guide" style="padding:6px 11px;border-radius:8px;background:#1c2136;border:1px solid #2e3550;font-size:12.5px;color:#a3a9c2;">观看路径</a>
+      <a href="#faq" style="padding:6px 11px;border-radius:8px;background:#1c2136;border:1px solid #2e3550;font-size:12.5px;color:#a3a9c2;">常见问答</a>
+      <a href="#rank" style="padding:6px 11px;border-radius:8px;background:#1c2136;border:1px solid #2e3550;font-size:12.5px;color:#a3a9c2;">实时榜单</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div>
+      <span class="hero-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 6.3L21 9.2l-4.8 4.3 1.4 6.5L12 16.7 6.4 20l1.4-6.5L3 9.2l6.4-.9z"/></svg>
+        第 12 轮主题赛进行中
+      </span>
+      <h1 id="heroTitle">每日大赛主题大赛寸止挑战在线观看</h1>
+      <p class="hero-desc">汇聚每日大赛与主题大赛中的寸止挑战场次：赛程安排、挑战规则细则、在线回看入口、选手停顿节奏点评与评分维度对照。无论是找某一场具体回看，还是想弄懂“寸止”在赛事里怎么判，都能在此定位到对应条目。</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#featured">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          进入回看条目
+        </a>
+        <a class="btn-ghost" href="#deep">读规则解析</a>
+      </div>
+      <div class="hero-stats">
+        <div class="st"><b>12</b><span>已办轮次</span></div>
+        <div class="st"><b>86</b><span>挑战档案</span></div>
+        <div class="st"><b>9</b><span>今日更新</span></div>
+        <div class="st"><b>4.7</b><span>社区均分</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-card hv-1">
+        <div class="lbl">第 12 轮 · 寸止挑战</div>
+        <div class="big">静默十秒<br><em>停顿判定</em></div>
+        <div class="hv-bars">
+          <i style="height:38%"></i><i style="height:64%"></i><i style="height:52%"></i>
+          <i style="height:88%"></i><i style="height:70%"></i><i style="height:96%"></i><i style="height:58%"></i>
+        </div>
+      </div>
+      <div class="hv-card hv-2">
+        <div class="lbl">实时状态</div>
+        <div class="row"><span>第 12 轮回看</span><b>已上线</b></div>
+        <div class="row"><span>评分明细</span><b>3 份</b></div>
+        <div class="row"><span>晋级名额</span><b>20 人</b></div>
+      </div>
+      <div class="hv-card hv-3">
+        <div class="lbl">节奏构成</div>
+        <div class="ring">
+          <svg width="58" height="58" viewBox="0 0 58 58" aria-hidden="true">
+            <circle cx="29" cy="29" r="23" fill="none" stroke="#2e3550" stroke-width="7"/>
+            <circle cx="29" cy="29" r="23" fill="none" stroke="#4dd4ac" stroke-width="7" stroke-dasharray="108 37" stroke-linecap="round" transform="rotate(-90 29 29)"/>
+          </svg>
+          <div class="ring-txt"><b>停顿占 74%</b>节奏稳定度评分</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三栏布局 -->
+  <div class="layout">
+
+    <!-- 左频道栏 -->
+    <aside class="col-left" aria-label="频道索引">
+      <nav class="channel-nav" aria-label="频道分类">
+        <h2>频道索引</h2>
+        <a href="#featured">主题赛回看 <span class="n">24</span></a>
+        <a href="#featured">寸止挑战档案 <span class="n">86</span></a>
+        <a href="#updates">今日场次动态 <span class="n">9</span></a>
+        <a href="#categories">挑战分类 <span class="n">8</span></a>
+        <a href="#deep">评分规则解析 <span class="n">6</span></a>
+        <a href="#guide">观看顺序指南 <span class="n">5</span></a>
+        <a href="#faq">常见问答 <span class="n">6</span></a>
+        <a href="#comments">社区评论 <span class="n">16</span></a>
+        <a href="#news">相关资讯 <span class="n">6</span></a>
+        <a href="#rank">实时榜单 <span class="n">10</span></a>
+        <a href="#timeline">赛程时间线 <span class="n">6</span></a>
+      </nav>
+      <div class="mini-note">
+        <b>本轮看点</b>
+        第 12 轮「静默十秒」主题赛要求选手在 60 秒内完成三次规定停顿，停顿误差小于 0.4 秒才计满分。规则细则与回看均已上线。
+      </div>
+    </aside>
+
+    <!-- 中主内容 -->
+    <div class="main-col">
+
+      <!-- 1 主题领域概览 -->
+      <section class="section panel overview" id="overview" aria-labelledby="ovTitle">
+        <div class="sec-head">
+          <h2 id="ovTitle">主题大赛与<span class="accent">寸止挑战</span>包含哪些方向</h2>
+          <span class="sub">领域概览</span>
+        </div>
+        <p>“每日大赛”是一类按日推进、按轮次结算的赛事组织形式，参赛者每天完成一项规定任务，成绩进入当日榜单，累计后决定晋级名额。“主题大赛”则在此基础上叠加统一命题，例如某个轮次围绕“静默”“节拍”“镜像动作”等主题展开，规则会随主题调整判定重点。而<strong>寸止挑战</strong>是主题赛中技术门槛明确、观赏性较高的一类：选手需要在规定动作序列里，于指定节点做出“停在临界点前”的控制，停顿的时机、时长与后续衔接构成评分核心。</p>
+        <p>从内容方向看，这类赛事大致可以分成几块。第一是<strong>赛程与轮次信息</strong>，包括每轮主题、开赛时间、提交截止与晋级名单；第二是<strong>规则细则</strong>，寸止挑战的规则通常写明停顿窗口的毫秒区间、允许的预备动作、违规判定与申诉方式；第三是<strong>在线回看</strong>，每场挑战结束后会放出完整录像与关键节点切片，便于对照规则复盘；第四是<strong>选手表现点评</strong>，包括节奏稳定度、停顿精度、动作连贯性与临场调整；第五是<strong>评分与榜单</strong>，多数轮次采用“精度分 + 完成分 + 风格分”的加权方式。</p>
+        <p>当前值得关注的具体内容有几类：第 12 轮「静默十秒」的规则比上一轮多了一条“二次停顿不计分”的约束；新手组新增“寸止入门三式”示范档案；秋季主题赛的整体评分权重从精度 60% 调整为精度 50%、连贯 30%、风格 20%。如果你刚开始接触，建议先从示范档案看起，再对照一轮完整回看理解判定逻辑。</p>
+        <div class="overview-chips">
+          <span>轮次赛程</span><span>停顿窗口</span><span>回看切片</span><span>精度评分</span><span>晋级名单</span><span>违规申诉</span>
+        </div>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="section" id="featured" aria-labelledby="ftTitle">
+        <div class="sec-head">
+          <h2 id="ftTitle">精选<span class="accent">寸止挑战</span>回看条目</h2>
+          <a class="more" href="#updates">查看今日全部更新 →</a>
+        </div>
+        <div class="card-grid">
+
+          <article class="card" data-search="静默十秒 第12轮 寸止挑战 主题赛 停顿判定">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jingmo-shimiao12/400/300" alt="静默十秒第12轮寸止挑战回看封面" width="400" height="300" loading="lazy">
+              <span class="badge">主题赛回看</span>
+              <span class="heat">热度 9.6</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">静默十秒 · 第 12 轮寸止挑战</a></h3>
+              <div class="tags"><span>主题赛</span><span>三次停顿</span><span>精度判定</span></div>
+              <p class="desc">本轮要求在 60 秒动作序列中完成三次临界停顿，误差窗口缩至 0.4 秒。回看包含完整录像与三次停顿的逐帧切片，适合对照规则理解判定。</p>
+              <div class="card-meta"><span>更新于 11 月 8 日</span><b>评分 9.2</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="节拍镜像 第11轮 寸止挑战 双人对抗">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jiepai-jingxiang11/400/300" alt="节拍镜像第11轮双人寸止对抗回看封面" width="400" height="300" loading="lazy">
+              <span class="badge">对抗回看</span>
+              <span class="heat">热度 8.9</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">节拍镜像 · 第 11 轮双人对抗</a></h3>
+              <div class="tags"><span>双人赛</span><span>同步停顿</span><span>镜像动作</span></div>
+              <p class="desc">两位选手需在镜像动作中同步停顿，先动或后动超过 0.3 秒即扣分。回看标出了双方四次分歧节点，是理解同步判定标准的好样本。</p>
+              <div class="card-meta"><span>更新于 11 月 6 日</span><b>评分 8.8</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="寸止入门三式 新手示范 档案">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/cunzhi-rumen3/400/300" alt="寸止入门三式新手示范档案封面" width="400" height="300" loading="lazy">
+              <span class="badge">新手示范</span>
+              <span class="heat">热度 8.4</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">寸止入门三式 · 新手示范档案</a></h3>
+              <div class="tags"><span>新手</span><span>基础动作</span><span>停顿练习</span></div>
+              <p class="desc">把最常见的三种停顿节点拆成可单独练习的短片段，每式配 20 秒慢速演示与常见错误对照。第一次接触寸止挑战的人，从这里入手最省时间。</p>
+              <div class="card-meta"><span>更新于 11 月 4 日</span><b>评分 8.6</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="零点停格 第10轮 夜间赛 寸止">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/lingdian-tingge10/400/300" alt="零点停格第10轮夜间赛寸止挑战封面" width="400" height="300" loading="lazy">
+              <span class="badge">夜间赛</span>
+              <span class="heat">热度 8.1</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">零点停格 · 第 10 轮夜间赛</a></h3>
+              <div class="tags"><span>夜间场</span><span>长序列</span><span>耐力判定</span></div>
+              <p class="desc">90 秒长序列里只设两次停顿，但后半段动作密度提升，容易在疲劳时提前松劲。回看附有全程节奏曲线，能看出选手在哪一秒开始失稳。</p>
+              <div class="card-meta"><span>更新于 11 月 2 日</span><b>评分 8.3</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="反拍寸止 第9轮 节奏反转 主题赛">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/fanpai-cunzhi09/400/300" alt="反拍寸止第9轮节奏反转主题赛封面" width="400" height="300" loading="lazy">
+              <span class="badge">主题赛回看</span>
+              <span class="heat">热度 7.8</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">反拍寸止 · 第 9 轮节奏反转</a></h3>
+              <div class="tags"><span>反拍</span><span>节奏反转</span><span>临场调整</span></div>
+              <p class="desc">本轮主题要求选手在动作中段主动反转节拍，再于反转后的第二拍停顿。多数选手在反转衔接处丢分，回看逐段标注了反转点与判定结果。</p>
+              <div class="card-meta"><span>更新于 10 月 29 日</span><b>评分 8.0</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="秋季主题赛 评分权重 调整 说明">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/qiuji-quanzhong/400/300" alt="秋季主题赛评分权重调整说明封面" width="400" height="300" loading="lazy">
+              <span class="badge">规则说明</span>
+              <span class="heat">热度 7.6</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">秋季主题赛 · 评分权重调整说明</a></h3>
+              <div class="tags"><span>评分权重</span><span>连贯分</span><span>风格分</span></div>
+              <p class="desc">精度分从 60% 降到 50%，连贯与风格各提 5 个百分点。说明页用同一段回看做了新旧权重对照，能直观看出名次为何发生变化。</p>
+              <div class="card-meta"><span>更新于 10 月 27 日</span><b>评分 8.2</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="双停顿陷阱 第8轮 失误复盘">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/shuangtingdun-xianjing08/400/300" alt="双停顿陷阱第8轮失误复盘封面" width="400" height="300" loading="lazy">
+              <span class="badge">失误复盘</span>
+              <span class="heat">热度 7.4</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">双停顿陷阱 · 第 8 轮失误复盘</a></h3>
+              <div class="tags"><span>失误分析</span><span>二次停顿</span><span>违规判定</span></div>
+              <p class="desc">第 8 轮有六名选手因“停顿后回补动作”被判二次停顿。复盘把这些片段剪在一起，逐条解释为什么回补会被计入违规，是理解规则边界的关键材料。</p>
+              <div class="card-meta"><span>更新于 10 月 24 日</span><b>评分 7.9</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="镜面同步 第7轮 双人 寸止挑战">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jingmian-tongbu07/400/300" alt="镜面同步第7轮双人寸止挑战封面" width="400" height="300" loading="lazy">
+              <span class="badge">双人赛</span>
+              <span class="heat">热度 7.2</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">镜面同步 · 第 7 轮双人赛</a></h3>
+              <div class="tags"><span>同步率</span><span>镜像</span><span>配合评分</span></div>
+              <p class="desc">双人镜像动作要求两人停顿时刻差小于 0.25 秒。回看给出每对选手的同步率数据，配合评分占本轮总分的三分之一。</p>
+              <div class="card-meta"><span>更新于 10 月 21 日</span><b>评分 7.7</b></div>
+            </div>
+          </article>
+
+          <article class="card" data-search="极限边缘 第6轮 精度挑战 回看">
+            <div class="thumb">
+              <img src="https://picsum.photos/seed/jixian-bianyuan06/400/300" alt="极限边缘第6轮精度挑战回看封面" width="400" height="300" loading="lazy">
+              <span class="badge">精度赛</span>
+              <span class="heat">热度 7.0</span>
+            </div>
+            <div class="card-body">
+              <h3><a href="#featured">极限边缘 · 第 6 轮精度挑战</a></h3>
+              <div class="tags"><span>精度</span><span>临界停顿</span><span>单人对决</span></div>
+              <p class="desc">本轮把停顿窗口压到 0.25 秒，只有四人满分。回看保留原始计时器画面，可逐帧核对选手的停顿落点与判定结果。</p>
+              <div class="card-meta"><span>更新于 10 月 18 日</span><b>评分 7.5</b></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 3 最新更新 / 动态 -->
+      <section class="section panel" id="updates" aria-labelledby="upTitle">
+        <div class="sec-head">
+          <h2 id="upTitle">今日<span class="accent">挑战动态</span>与回看上线</h2>
+          <span class="sub">11 月 8 日</span>
+        </div>
+        <ul class="updates">
+          <li><span class="time">今天 09:30</span><div class="body"><b><a href="#featured">静默十秒 · 第 12 轮</a></b><span>完整回看与三次停顿逐帧切片已上线，评分明细同步公开。</span></div><span class="pill new">新上线</span></li>
+          <li><span class="time">今天 08:15</span><div class="body"><b><a href="#deep">秋季主题赛规则细则</a></b><span>公布“二次停顿不计分”条款的适用范围，明确回补动作的判定边界。</span></div><span class="pill new">规则更新</span></li>
+          <li><span class="time">今天 07:40</span><div class="body"><b><a href="#rank">新手组晋级名单</a></b><span>前 20 名名单更新，第 18 至 20 位因精度分并列触发加赛。</span></div><span class="pill new">名单更新</span></li>
+          <li><span class="time">昨天 21:10</span><div class="body"><b><a href="#featured">节拍镜像 · 第 11 轮</a></b><span>双人对抗的分歧节点标注补充完成，新增同步率对照表。</span></div><span class="pill new">补充内容</span></li>
+          <li><span class="time">昨天 19:05</span><div class="body"><b><a href="#news">第 13 轮主题预告</a></b><span>下轮主题定为“错位拍”，要求选手在反向节拍中完成单次停顿。</span></div><span class="pill new">赛程预告</span></li>
+          <li><span class="time">昨天 16:20</span><div class="body"><b><a href="#featured">寸止入门三式</a></b><span>慢速演示新增常见错误对照，补充三种提前松劲的典型画面。</span></div><span class="pill new">内容更新</span></li>
+          <li><span class="time">11 月 6 日</span><div class="body"><b><a href="#comments">社区讨论焦点</a></b><span>关于“停顿后是否允许微调重心”的讨论帖累计 240 条回复，官方已回应。</span></div><span class="pill live">讨论中</span></li>
+          <li><span class="time">11 月 5 日</span><div class="body"><b><a href="#featured">零点停格 · 第 10 轮</a></b><span>全程节奏曲线数据补齐，可对照选手在第 62 秒的失稳节点。</span></div><span class="pill new">数据补充</span></li>
+          <li><span class="time">11 月 3 日</span><div class="body"><b><a href="#news">评分权重调整</a></b><span>秋季主题赛精度分下调至 50%，连贯与风格各提至 30% 与 20%。</span></div><span class="pill new">规则调整</span></li>
+          <li><span class="time">11 月 1 日</span><div class="body"><b><a href="#timeline">第 11 轮结算</a></b><span>第 11 轮全部成绩结算完成，共 14 人晋级下一轮。</span></div><span class="pill new">结算完成</span></li>
+        </ul>
+      </section>
+
+      <!-- 4 分类入口 + 筛选 -->
+      <section class="section" id="categories" aria-labelledby="catTitle">
+        <div class="sec-head">
+          <h2 id="catTitle">按<span class="accent">挑战类型</span>进入</h2>
+          <span class="sub">8 个分类</span>
+        </div>
+        <div class="cat-grid">
+          <a class="cat" href="#featured"><span class="ico">静</span><b>静默停顿</b><span>规定节点静止计时，精度优先</span></a>
+          <a class="cat" href="#featured"><span class="ico">拍</span><b>节拍寸止</b><span>跟随节拍卡点停顿，节奏判定</span></a>
+          <a class="cat" href="#featured"><span class="ico">镜</span><b>镜像同步</b><span>双人镜像动作，同步率计分</span></a>
+          <a class="cat" href="#featured"><span class="ico">反</span><b>反拍反转</b><span>节拍中段反转后停顿</span></a>
+          <a class="cat" href="#featured"><span class="ico">耐</span><b>长序列耐力</b><span>90 秒以上长序列控速</span></a>
+          <a class="cat" href="#featured"><span class="ico">准</span><b>极限精度</b><span>0.25 秒窗口内落点</span></a>
+          <a class="cat" href="#featured"><span class="ico">复</span><b>失误复盘</b><span>违规片段与判定解释</span></a>
+          <a class="cat" href="#guide"><span class="ico">入</span><b>新手入门</b><span>基础动作与练习档案</span></a>
+        </div>
+
+        <div class="panel" style="margin-top:18px;">
+          <div class="sec-head" style="margin-bottom:13px;">
+            <h2 style="font-size:15px;">按轮次筛选回看条目</h2>
+            <span class="sub" id="filterCount">共 9 条</span>
+          </div>
+          <div class="filter-bar" role="group" aria-label="按轮次筛选">
+            <button class="active" data-filter="all">全部轮次</button>
+            <button data-filter="r12">第 12 轮</button>
+            <button data-filter="r11">第 11 轮</button>
+            <button data-filter="r10">第 10 轮</button>
+            <button data-filter="r9">第 9 轮</button>
+            <button data-filter="rule">规则说明</button>
+            <button data-filter="newbie">新手示范</button>
+          </div>
+          <div class="filter-empty" id="filterEmpty">没有匹配该轮次的回看条目，试试切换到“全部轮次”。</div>
+          <ul style="display:flex;flex-direction:column;gap:8px;" id="filterList">
+            <li data-round="r12" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>静默十秒 · 第 12 轮寸止挑战</span><span style="color:#4dd4ac;font-size:12px;">11 月 8 日</span></li>
+            <li data-round="r11" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>节拍镜像 · 第 11 轮双人对抗</span><span style="color:#4dd4ac;font-size:12px;">11 月 6 日</span></li>
+            <li data-round="newbie" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>寸止入门三式 · 新手示范档案</span><span style="color:#4dd4ac;font-size:12px;">11 月 4 日</span></li>
+            <li data-round="r10" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>零点停格 · 第 10 轮夜间赛</span><span style="color:#4dd4ac;font-size:12px;">11 月 2 日</span></li>
+            <li data-round="r9" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>反拍寸止 · 第 9 轮节奏反转</span><span style="color:#4dd4ac;font-size:12px;">10 月 29 日</span></li>
+            <li data-round="rule" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>秋季主题赛 · 评分权重调整说明</span><span style="color:#4dd4ac;font-size:12px;">10 月 27 日</span></li>
+            <li data-round="r11" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>镜面同步 · 第 7 轮双人赛</span><span style="color:#4dd4ac;font-size:12px;">10 月 21 日</span></li>
+            <li data-round="r10" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>双停顿陷阱 · 第 8 轮失误复盘</span><span style="color:#4dd4ac;font-size:12px;">10 月 24 日</span></li>
+            <li data-round="r9" style="display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:#232a44;border:1px solid #2e3550;border-radius:8px;font-size:13.5px;"><span>极限边缘 · 第 6 轮精度挑战</span><span style="color:#4dd4ac;font-size:12px;">10 月 18 日</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="section panel deep" id="deep" aria-labelledby="deepTitle">
+        <div class="sec-head">
+          <h2 id="deepTitle">寸止挑战的<span class="accent">判定逻辑</span>与观赛重点</h2>
+          <span class="sub">深度解析</span>
+        </div>
+        <p>很多人第一次看寸止挑战，会觉得“不就是停一下”，但真正决定名次的往往是停顿前后的细节。理解判定逻辑，能让回看从“看热闹”变成“看得懂”。以下从动作结构、判定维度、常见失分点和观赛切入点展开。</p>
+
+        <h3>一、停顿窗口：从“停住”到“停准”</h3>
+        <p>寸止挑战的核心是把“停”拆成三个可量化的部分：<strong>起始时刻、持续时长、结束衔接</strong>。起始时刻看选手是否在规定节拍点进入静止，持续时长看静止是否落在允许区间内，结束衔接看静止结束后能否立刻回到动作序列而不出现回补。以第 12 轮为例，三次停顿的窗口分别是 0.6 至 0.9 秒，误差超过 0.4 秒即扣精度分。</p>
+        <p>窗口越窄，挑战难度越高。第 6 轮把窗口压到 0.25 秒，结果只有四人满分，说明精度维度对大多数选手仍是分水岭。观赛时可以先看画面角落的计时器，再对照选手的肩线与重心，判断停顿是否“真的停住”，而不是用微小晃动维持。</p>
+
+        <h3>二、评分维度：精度、连贯、风格三者的权重拉扯</h3>
+        <p>当前多数轮次采用三项加权：</p>
+        <ul>
+          <li><strong>精度分</strong>：停顿落点与规定窗口的偏差，偏差越小得分越高，通常占总分一半。</li>
+          <li><strong>连贯分</strong>：停顿前后动作是否自然衔接，是否出现明显回补、抢拍或延迟启动。</li>
+          <li><strong>风格分</strong>：在同一动作序列下呈现出的控制感与节奏设计，主观性相对更高。</li>
+        </ul>
+        <p>秋季主题赛把精度分从 60% 下调到 50%，连贯与风格各提 5 个百分点，直接改变了部分选手的排名。原因在于，精度可以通过反复练习逼近极限，而连贯与风格更考验临场选择。对观众而言，这意味着“停得最准”不一定拿第一，停顿之后的衔接质量同样关键。</p>
+
+        <div class="callout"><b>观赛提示：</b>看回看时先锁定计时器读数，再回看选手停顿后的第一帧动作。如果第一帧出现明显回拉或重心重置，即便停顿时长合规，连贯分通常也会被扣。</div>
+
+        <h3>三、常见失分点：二次停顿与回补动作</h3>
+        <p>第 8 轮有六名选手被判二次停顿，共同特征是“停顿后为找回节奏又补了一个短促的静止”。规则里对二次停顿的界定是：在一次有效停顿结束后 0.5 秒内再次出现静止状态，无论时长多短，均计入违规。另一种高频失分是回补动作，即停顿结束后先反向微调再继续，被视为破坏连贯。</p>
+        <p>这两类失分在回看中并不显眼，需要逐帧看。建议把播放速度降到 0.5 倍，重点观察停顿结束后的三到五帧。多数违规不是发生在停顿本身，而是发生在“停顿刚结束”的那一瞬间。</p>
+
+        <h3>四、如何判断一场回看值不值得细看</h3>
+        <p>可以从三个信号快速判断：一是本轮是否调整了规则，规则变动越大的轮次，回看里的判定样本越丰富；二是是否出现并列或加赛，加赛往往意味着选手水平接近，细节差异更明显；三是回看是否附带逐帧切片或节奏曲线，有数据标注的版本更容易对照规则。按这个标准，第 12 轮、第 11 轮和第 8 轮复盘是当前最值得花时间的三份材料。</p>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="section panel" id="guide" aria-labelledby="guideTitle">
+        <div class="sec-head">
+          <h2 id="guideTitle">第一次看<span class="accent">寸止挑战</span>的观看顺序</h2>
+          <span class="sub">消费路径</span>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="num"></div><div class="txt"><b>先看新手示范，建立动作基线</b><span>“寸止入门三式”用慢速演示拆出三种基础停顿，先知道“标准停顿长什么样”，后面看比赛才不会被花哨动作带偏。</span></div></div>
+          <div class="step"><div class="num"></div><div class="txt"><b>再读一轮规则细则，弄清判定窗口</b><span>规则里会写明本轮停顿窗口、允许的预备动作和违规条款。先读规则再看回看，能避免把“合规停顿”误判成“失误”。</span></div></div>
+          <div class="step"><div class="num"></div><div class="txt"><b>挑一轮带逐帧切片的回看对照</b><span>带切片的版本会把每次停顿单独剪出，配合计时器读数，理解精度分怎么算。第 12 轮的回看适合作为第一份对照材料。</span></div></div>
+          <div class="step"><div class="num"></div><div class="txt"><b>看一份失误复盘，理解规则边界</b><span>“双停顿陷阱”把违规片段集中呈现，能快速建立“什么算二次停顿、什么算回补”的判断力，比只看满分场次更有收获。</span></div></div>
+          <div class="step"><div class="num"></div><div class="txt"><b>最后按兴趣追双人赛或长序列赛</b><span>双人赛看同步率与配合，长序列赛看耐力与节奏控制。两类比赛的观赛重点不同，按自己更在意的维度选择即可。</span></div></div>
+        </div>
+
+        <div class="compare" style="margin-top:18px;">
+          <div class="box a">
+            <h3>单人精度赛 · 看什么</h3>
+            <ul>
+              <li>停顿落点是否稳定落在窗口中心</li>
+              <li>停顿结束后第一帧是否出现回补</li>
+              <li>长序列后段是否出现节奏漂移</li>
+            </ul>
+          </div>
+          <div class="box b">
+            <h3>双人同步赛 · 看什么</h3>
+            <ul>
+              <li>两人停顿时刻差是否小于 0.25 秒</li>
+              <li>镜像动作是否出现单侧抢拍</li>
+              <li>配合分与个人精度分如何加权</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="section panel" id="faq" aria-labelledby="faqTitle">
+        <div class="sec-head">
+          <h2 id="faqTitle">关于<span class="accent">主题大赛</span>与寸止挑战的常见问题</h2>
+          <span class="sub">6 问</span>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>寸止挑战和普通节奏挑战有什么区别？</summary>
+            <div class="ans">普通节奏挑战看的是动作是否踩中节拍，寸止挑战则要求在节拍点上“停住”，并且停的时长、落点、结束衔接都会被单独评分。换句话说，踩准只是入场券，停得准、停得稳、停完能顺下去才是得分点。</div>
+          </details>
+          <details>
+            <summary>主题大赛一般多久办一轮，回看什么时候上线？</summary>
+            <div class="ans">按目前的节奏，主题赛通常一到两周推进一轮，每轮结束后 24 至 48 小时内放出完整回看与关键节点切片。第 12 轮在 11 月 8 日上午上线回看，属于正常节奏。</div>
+          </details>
+          <details>
+            <summary>第一次接触，从哪一份回看开始看比较好？</summary>
+            <div class="ans">建议先看“寸止入门三式”建立动作基线，再读第 12 轮规则，然后对照第 12 轮回看。如果时间有限，只看“双停顿陷阱”复盘也能较快理解规则边界，因为失分片段比满分片段更能说明判定标准。</div>
+          </details>
+          <details>
+            <summary>二次停顿是怎么判定的，和回补动作有什么区别？</summary>
+            <div class="ans">二次停顿指一次有效停顿结束后 0.5 秒内再次出现静止状态，不论时长多短都计入违规。回补动作则是停顿结束后先反向微调再继续动作，破坏的是连贯分。两者常同时出现，但判定依据不同。</div>
+          </details>
+          <details>
+            <summary>精度分下调到 50% 后，名次变化大吗？</summary>
+            <div class="ans">有明显变化。原先靠精度拉分的选手优势被压缩，连贯与风格表现稳定的选手排名上升。秋季主题赛前几轮的名次对比里，可以看到至少三个位次发生互换，主要发生在精度接近但衔接质量差异较大的选手之间。</div>
+          </details>
+          <details>
+            <summary>双人同步赛的同步率一般要求多少？</summary>
+            <div class="ans">常见门槛是两人停顿时刻差小于 0.25 秒，部分轮次会收紧到 0.2 秒。同步率只是其中一项，配合动作的完成度与整体节奏设计也在评分范围内，单看同步率不足以判断一对选手的最终名次。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="section panel" id="comments" aria-labelledby="cmTitle">
+        <div class="sec-head">
+          <h2 id="cmTitle">社区对<span class="accent">近期场次</span>的讨论</h2>
+          <span class="sub">16 条</span>
+        </div>
+        <div class="comments">
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#ffb547">林</span><span class="nm">林间慢跑</span><span class="tm">今天 10:12</span></div><p>第 12 轮第三次停顿那个切片看了五遍，落点确实稳，但结束后的第一帧有一点点回拉，连贯分应该被扣了。</p><span class="ref">静默十秒 · 第 12 轮</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#4dd4ac">陈</span><span class="nm">陈皮不加糖</span><span class="tm">今天 09:48</span></div><p>新手三式那个慢速演示很实用，之前一直以为停顿就是完全不动，看完才知道重心也要跟着锁住。</p><span class="ref">寸止入门三式</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#7c8cff">周</span><span class="nm">周末补番</span><span class="tm">今天 09:20</span></div><p>精度分下调之后，第 11 轮的名次确实洗牌了，原来第三那位掉到第五，连贯分差得有点多。</p><span class="ref">秋季主题赛权重</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#ff6b7a">赵</span><span class="nm">赵六的笔记</span><span class="tm">昨天 22:31</span></div><p>二次停顿那个判定比想象中严格，0.5 秒内再停一下就违规，难怪第 8 轮那么多人翻车。</p><span class="ref">双停顿陷阱</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#f0a04b">吴</span><span class="nm">吴钩霜雪</span><span class="tm">昨天 21:05</span></div><p>双人同步赛的同步率数据挺有意思，有一对选手同步率很高但配合动作完成度一般，最后没进前三。</p><span class="ref">镜面同步 · 第 7 轮</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#5ac8fa">孙</span><span class="nm">孙山之外</span><span class="tm">昨天 20:14</span></div><p>零点停格那轮后半段明显能看出选手开始赶节奏，节奏曲线在 62 秒那里有个明显的下凹。</p><span class="ref">零点停格 · 第 10 轮</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#b07cff">郑</span><span class="nm">郑在输入</span><span class="tm">昨天 18:40</span></div><p>反拍反转那轮看的时候没看懂，回看里逐段标注反转点之后才明白为什么会丢分。</p><span class="ref">反拍寸止 · 第 9 轮</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#ffb547">王</span><span class="nm">王二小的猫</span><span class="tm">昨天 17:22</span></div><p>极限边缘那轮窗口 0.25 秒，只有四个人满分，这精度要求有点狠，回看的计时器画面帮了大忙。</p><span class="ref">极限边缘 · 第 6 轮</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#4dd4ac">冯</span><span class="nm">冯虚御风</span><span class="tm">昨天 16:03</span></div><p>第 13 轮主题“错位拍”听起来比静默十秒更难，反向节拍里停顿，估计又有一批人要练很久。</p><span class="ref">第 13 轮预告</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#7c8cff">何</span><span class="nm">何处不相逢</span><span class="tm">昨天 14:37</span></div><p>说实话有些轮次的回看剪辑节奏偏快，停顿片段一闪而过，得自己拖进度条反复看，希望切片再细一点。</p><span class="ref">回看剪辑</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#ff6b7a">吕</span><span class="nm">吕端大事</span><span class="tm">11 月 7 日</span></div><p>秋季权重调整说明用同一段回看做对照这点很好，新旧权重下名次变化一目了然。</p><span class="ref">评分权重调整</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#f0a04b">施</span><span class="nm">施耐庵的邻居</span><span class="tm">11 月 7 日</span></div><p>节拍镜像那轮两人分歧节点标得很清楚，0.3 秒的差距在慢放里才看得出来，正常速度完全没感觉。</p><span class="ref">节拍镜像 · 第 11 轮</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#5ac8fa">张</span><span class="nm">张弓搭箭</span><span class="tm">11 月 6 日</span></div><p>新手示范档案建议再加一份“常见错误合集”，现在只有零散对照，集中起来会更方便。</p><span class="ref">寸止入门三式</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#b07cff">孔</span><span class="nm">孔明灯下</span><span class="tm">11 月 5 日</span></div><p>第 12 轮的三次停顿窗口比上一轮窄，看的时候明显感觉选手更紧张，动作幅度都收小了。</p><span class="ref">静默十秒 · 第 12 轮</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#ffb547">曹</span><span class="nm">曹冲称象</span><span class="tm">11 月 4 日</span></div><p>长序列耐力那轮的回看比较考验耐心，但节奏曲线补上之后确实能看出后段失稳的原因。</p><span class="ref">零点停格 · 第 10 轮</span></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar" style="background:#4dd4ac">严</span><span class="nm">严冬不冷</span><span class="tm">11 月 3 日</span></div><p>整体看下来，寸止挑战最难的还是停顿结束后的衔接，停住容易，停完继续顺下去难。</p><span class="ref">规则解析</span></div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="section panel" id="news" aria-labelledby="newsTitle">
+        <div class="sec-head">
+          <h2 id="newsTitle">赛事<span class="accent">相关资讯</span></h2>
+          <span class="sub">6 条</span>
+        </div>
+        <div class="news-list">
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/xunwen-13lun/600/400" alt="第13轮主题错位拍赛程预告配图" width="600" height="400" loading="lazy">
+            <div class="n-body">
+              <h3><a href="#news">第 13 轮主题定为“错位拍”，反向节拍停顿成难点</a></h3>
+              <p>新一轮要求选手在反转后的第二拍完成单次停顿，规则细则预计 11 月 10 日公布，报名通道同步开启。</p>
+              <span class="d">2026-11-07</span>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/xunwen-quanzhong/600/400" alt="秋季主题赛评分权重调整资讯配图" width="600" height="400" loading="lazy">
+            <div class="n-body">
+              <h3><a href="#news">秋季主题赛评分权重调整，精度分降至 50%</a></h3>
+              <p>连贯分与风格分各上调 5 个百分点，官方说明称此举为鼓励选手在停顿衔接上做更多设计。</p>
+              <span class="d">2026-11-03</span>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/xunwen-xinshou/600/400" alt="新手组晋级名单更新资讯配图" width="600" height="400" loading="lazy">
+            <div class="n-body">
+              <h3><a href="#news">新手组晋级名单更新，第 18 至 20 位触发加赛</a></h3>
+              <p>三人精度分并列，加赛采用 30 秒短序列单次停顿，结果将在 11 月 9 日晚间公布。</p>
+              <span class="d">2026-11-08</span>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/xunwen-weigui/600/400" alt="二次停顿判定细则补充说明资讯配图" width="600" height="400" loading="lazy">
+            <div class="n-body">
+              <h3><a href="#news">二次停顿判定细则补充，明确回补动作适用范围</a></h3>
+              <p>新说明指出，停顿结束后 0.5 秒内的反向微调若幅度超过阈值，将同时计入连贯扣分。</p>
+              <span class="d">2026-11-08</span>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/xunwen-shezhi/600/400" alt="社区讨论停顿后重心微调资讯配图" width="600" height="400" loading="lazy">
+            <div class="n-body">
+              <h3><a href="#news">社区讨论焦点：停顿后是否允许重心微调</a></h3>
+              <p>相关讨论帖累计 240 条回复，官方回应称微调若不影响动作连续性，一般不单独扣分。</p>
+              <span class="d">2026-11-06</span>
+            </div>
+          </article>
+
+          <article class="news">
+            <img src="https://picsum.photos/seed/xunwen-jingdu/600/400" alt="极限精度轮次满分人数统计资讯配图" width="600" height="400" loading="lazy">
+            <div class="n-body">
+              <h3><a href="#news">精度窗口收窄至 0.25 秒，满分人数降至四人</a></h3>
+              <p>第 6 轮统计显示，窗口每收窄 0.05 秒，满分人数平均下降约三成，精度仍是主要分水岭。</p>
+              <span class="d">2026-10-18</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="section panel" id="related" aria-labelledby="relTitle">
+        <div class="sec-head">
+          <h2 id="relTitle">延伸<span class="accent">内容方向</span>索引</h2>
+          <span class="sub">8 项</span>
+        </div>
+        <div class="rec-tags">
+          <a href="#featured">静默停顿精度对照</a>
+          <a href="#featured">双人同步率拆解</a>
+          <a href="#deep">二次停顿判定边界</a>
+          <a href="#deep">连贯分与风格分权重</a>
+          <a href="#guide">新手动作基线练习</a>
+          <a href="#featured">长序列耐力节奏曲线</a>
+          <a href="#news">错位拍主题预告</a>
+          <a href="#faq">精度窗口收窄趋势</a>
+        </div>
+      </section>
+
+      <!-- 11 热门榜单 -->
+      <section class="section panel" id="rank" aria-labelledby="rankTitle">
+        <div class="sec-head">
+          <h2 id="rankTitle">当前<span class="accent">挑战热度榜</span></h2>
+          <span class="sub">截至 11 月 8 日</span>
+        </div>
+        <div class="rank-list">
+          <div class="rank"><span class="no">01</span><div class="r-name">静默十秒 · 第 12 轮<span>主题赛 · 三次停顿</span></div><span class="r-score">9.6</span></div>
+          <div class="rank"><span class="no">02</span><div class="r-name">节拍镜像 · 第 11 轮<span>双人对抗 · 同步判定</span></div><span class="r-score">8.9</span></div>
+          <div class="rank"><span class="no">03</span><div class="r-name">寸止入门三式<span>新手示范 · 基础动作</span></div><span class="r-score">8.4</span></div>
+          <div class="rank"><span class="no">04</span><div class="r-name">零点停格 · 第 10 轮<span>夜间赛 · 长序列</span></div><span class="r-score">8.1</span></div>
+          <div class="rank"><span class="no">05</span><div class="r-name">反拍寸止 · 第 9 轮<span>主题赛 · 节奏反转</span></div><span class="r-score">7.8</span></div>
+          <div class="rank"><span class="no">06</span><div class="r-name">双停顿陷阱 · 第 8 轮<span>失误复盘 · 违规判定</span></div><span class="r-score">7.4</span></div>
+          <div class="rank"><span class="no">07</span><div class="r-name">镜面同步 · 第 7 轮<span>双人赛 · 配合评分</span></div><span class="r-score">7.2</span></div>
+          <div class="rank"><span class="no">08</span><div class="r-name">极限边缘 · 第 6 轮<span>精度赛 · 临界停顿</span></div><span class="r-score">7.0</span></div>
+        </div>
+      </section>
+
+      <!-- 12 赛程时间线 -->
+      <section class="section panel" id="timeline" aria-labelledby="tlTitle">
+        <div class="sec-head">
+          <h2 id="tlTitle">近期<span class="accent">赛程时间线</span></h2>
+          <span class="sub">6 个节点</span>
+        </div>
+        <div class="timeline">
+          <div class="tl-item"><b>11 月 8 日 · 第 12 轮回看上线</b><span>静默十秒完整回看与三次停顿切片公开，评分明细同步发布。</span></div>
+          <div class="tl-item"><b>11 月 9 日 · 新手组加赛</b><span>第 18 至 20 位精度分并列选手进行 30 秒短序列加赛。</span></div>
+          <div class="tl-item"><b>11 月 10 日 · 第 13 轮规则公布</b><span>“错位拍”主题细则发布，报名通道同步开启。</span></div>
+          <div class="tl-item"><b>11 月 12 日 · 第 13 轮开赛</b><span>反向节拍单次停顿，窗口与判定标准以细则为准。</span></div>
+          <div class="tl-item"><b>11 月 15 日 · 第 12 轮结算</b><span>晋级名单与总分排名结算，申诉通道同日关闭。</span></div>
+          <div class="tl-item"><b>11 月 18 日 · 秋季主题赛总榜更新</b><span>累计积分重排，权重调整后的综合排名首次公开。</span></div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右辅助栏 -->
+    <aside class="col-right" aria-label="辅助信息">
+      <div class="side-card">
+        <h3>回看热榜</h3>
+        <ol class="hot-list">
+          <li><span class="idx">1</span><a href="#featured">静默十秒 · 第 12 轮寸止挑战</a></li>
+          <li><span class="idx">2</span><a href="#featured">节拍镜像 · 第 11 轮双人对抗</a></li>
+          <li><span class="idx">3</span><a href="#featured">寸止入门三式新手示范</a></li>
+          <li><span class="idx">4</span><a href="#featured">零点停格 · 第 10 轮夜间赛</a></li>
+          <li><span class="idx">5</span><a href="#featured">反拍寸止 · 第 9 轮节奏反转</a></li>
+          <li><span class="idx">6</span><a href="#featured">双停顿陷阱 · 第 8 轮复盘</a></li>
+          <li><span class="idx">7</span><a href="#featured">镜面同步 · 第 7 轮双人赛</a></li>
+          <li><span class="idx">8</span><a href="#featured">极限边缘 · 第 6 轮精度挑战</a></li>
+        </ol>
+      </div>
+
+      <div class="side-card">
+        <h3>快速入口</h3>
+        <div class="dir-list">
+          <a href="#overview">赛事领域概览 <span>→</span></a>
+          <a href="#deep">判定逻辑解析 <span>→</span></a>
+          <a href="#guide">观看顺序指南 <span>→</span></a>
+          <a href="#faq">常见问答 <span>→</span></a>
+          <a href="#rank">热度榜单 <span>→</span></a>
+          <a href="#timeline">赛程时间线 <span>→</span></a>
+        </div>
+        <div class="side-tip"><b>提示：</b>回看条目支持按轮次筛选，规则类内容集中在判定逻辑解析一节。</div>
+      </div>
+
+      <div class="side-card">
+        <h3>本轮数据</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:12.8px;color:var(--text-dim);">
+          <div style="display:flex;justify-content:space-between;"><span>参赛人数</span><b style="color:var(--brand-2)">48</b></div>
+          <div style="display:flex;justify-content:space-between;"><span>满分人数</span><b style="color:var(--brand-2)">6</b></div>
+          <div style="display:flex;justify-content:space-between;"><span>平均精度偏差</span><b style="color:var(--brand-2)">0.31 秒</b></div>
+          <div style="display:flex;justify-content:space-between;"><span>晋级名额</span><b style="color:var(--brand-2)">20</b></div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- 页尾 -->
+<footer class="site-foot">
+  <div class="foot-in">
+    <div class="foot-brand">
+      <div class="fb-top">
+        <svg width="34" height="34" viewBox="0 0 64 64" role="img" aria-label="赛事徽标">
+          <rect width="64" height="64" rx="15" fill="#1a1d2e"/>
+          <circle cx="32" cy="34" r="15" fill="none" stroke="#ffb547" stroke-width="3.4" stroke-dasharray="70 24" stroke-linecap="round" transform="rotate(-90 32 34)"/>
+          <rect x="30.4" y="24" width="3.2" height="12" rx="1.6" fill="#4dd4ac"/>
+          <circle cx="32" cy="43" r="2.4" fill="#ffb547"/>
+        </svg>
+        <span class="name">每日大赛主题大赛寸止挑战在线观看</span>
+      </div>
+      <p>聚焦每日大赛与主题大赛中的寸止挑战场次，提供赛程轮次、规则细则、在线回看条目、选手表现点评与评分维度对照，帮助观众按轮次定位内容、按判定逻辑理解比赛。</p>
+    </div>
+    <div class="foot-col">
+      <h4>内容栏目</h4>
+      <a href="#overview">赛事领域概览</a>
+      <a href="#featured">精选回看条目</a>
+      <a href="#updates">今日挑战动态</a>
+      <a href="#categories">挑战类型分类</a>
+    </div>
+    <div class="foot-col">
+      <h4>规则与解析</h4>
+      <a href="#deep">判定逻辑解析</a>
+      <a href="#guide">观看顺序指南</a>
+      <a href="#faq">常见问答</a>
+      <a href="#timeline">赛程时间线</a>
+    </div>
+    <div class="foot-col">
+      <h4>社区与榜单</h4>
+      <a href="#comments">社区讨论</a>
+      <a href="#news">相关资讯</a>
+      <a href="#rank">热度榜单</a>
+      <a href="#related">延伸方向索引</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>部分内容为示例数据，仅用于展示页面结构。</span>
+    <span>© 2026 每日大赛主题大赛寸止挑战内容聚合</span>
+  </div>
+</footer>
+
+<div class="mobile-foot-note">
+  <a href="#featured">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    查看第 12 轮寸止挑战回看
+  </a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端菜单 */
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', function(){
+      var open = mobileNav.style.display !== 'none';
+      mobileNav.style.display = open ? 'none' : 'block';
+      menuBtn.setAttribute('aria-expanded', String(!open));
+    });
+    mobileNav.addEventListener('click', function(e){
+      if (e.target.tagName === 'A') {
+        mobileNav.style.display = 'none';
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* 站内搜索：筛选卡片与更新列表 */
+  var searchInput = document.getElementById('siteSearch');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(){
+      var q = this.value.trim().toLowerCase();
+      var cards = document.querySelectorAll('.card');
+      var hit = 0;
+      cards.forEach(function(c){
+        var hay = (c.getAttribute('data-search') || '') + ' ' + c.textContent;
+        var ok = !q || hay.toLowerCase().indexOf(q) > -1;
+        c.style.display = ok ? '' : 'none';
+        if (ok) hit++;
+      });
+      var grid = document.querySelector('.card-grid');
+      if (grid) {
+        var empty = grid.querySelector('.search-empty');
+        if (q && hit === 0) {
+          if (!empty) {
+            empty = document.createElement('div');
+            empty.className = 'search-empty';
+            empty.style.cssText = 'grid-column:1/-1;padding:28px;text-align:center;color:#7a819c;font-size:13.5px;background:#232a44;border:1px dashed #2e3550;border-radius:11px;';
+            empty.textContent = '没有找到匹配“' + q + '”的条目，试试“静默”“双人”或“入门”。';
+            grid.appendChild(empty);
+          } else {
+            empty.textContent = '没有找到匹配“' + q + '”的条目，试试“静默”“双人”或“入门”。';
+            empty.style.display = '';
+          }
+        } else if (empty) {
+          empty.style.display = 'none';
+        }
+      }
+    });
+  }
+
+  /* 轮次筛选 */
+  var filterBar = document.querySelector('.filter-bar');
+  var filterList = document.getElementById('filterList');
+  var filterEmpty = document.getElementById('filterEmpty');
+  var filterCount = document.getElementById('filterCount');
+  if (filterBar && filterList && filterEmpty && filterCount) {
+    filterBar.addEventListener('click', function(e){
+      var btn = e.target.closest('button[data-filter]');
+      if (!btn) return;
+      filterBar.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      var items = filterList.querySelectorAll('li');
+      var shown = 0;
+      items.forEach(function(li){
+        var ok = f === 'all' || li.getAttribute('data-round') === f;
+        li.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      filterEmpty.classList.toggle('show', shown === 0);
+      filterCount.textContent = '共 ' + shown + ' 条';
+    });
+  }
+})();
+</script>
+</body>
+  </html>
