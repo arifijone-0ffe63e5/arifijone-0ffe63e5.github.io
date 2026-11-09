@@ -1,0 +1,1391 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>r星每日大赛吃瓜 - 赛事速递与社区话题</title>
+  <meta name="description" content="r星每日大赛吃瓜聚合每日赛事速递、选手表现、争议复盘与社区热评。看今日赛果、经典对局和玩家讨论，适合关注每日大赛动态的玩家浏览。">
+  <meta name="keywords" content="每日大赛赛果, 吃瓜热评, 选手表现, 赛事复盘, 社区讨论">
+  <style>
+    /* ---------- 全局色彩与排版系统 ---------- */
+    :root {
+      --bg-body: #f5f3f0;
+      --bg-panel: #ffffff;
+      --bg-sidebar: #faf8f6;
+      --border-light: #e6e2dd;
+      --border-medium: #d4cec7;
+      --text-primary: #1e1b18;
+      --text-secondary: #5e5852;
+      --text-muted: #8b847c;
+      --accent-main: #d97706; /* 琥珀色，赛事/吃瓜氛围 */
+      --accent-soft: #fef3c7;
+      --accent-dark: #b45309;
+      --accent-secondary: #2563eb; /* 用于链接或信息强调 */
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', monospace;
+      --header-height: 64px;
+      --announce-height: 40px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-padding-top: calc(var(--header-height) + var(--announce-height) + 12px);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-body);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    a:hover {
+      color: var(--accent-main);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ---------- 吸顶公告条 ---------- */
+    .announce-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--accent-soft);
+      border-bottom: 1px solid var(--border-light);
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      padding: 0 1.5rem;
+      height: var(--announce-height);
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+    .announce-bar .announce-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .announce-bar svg {
+      flex-shrink: 0;
+    }
+
+    /* ---------- 吸顶页头 ---------- */
+    .site-header {
+      position: sticky;
+      top: var(--announce-height);
+      z-index: 99;
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      height: var(--header-height);
+    }
+    .header-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-main);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .brand-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+    .brand-text span {
+      color: var(--accent-main);
+    }
+    .main-nav {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .main-nav a {
+      color: var(--text-secondary);
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .main-nav a:hover {
+      color: var(--accent-main);
+      border-bottom-color: var(--accent-main);
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header-search {
+      display: flex;
+      align-items: center;
+      background: var(--bg-body);
+      border: 1px solid var(--border-light);
+      border-radius: 30px;
+      padding: 0.3rem 0.3rem 0.3rem 0.9rem;
+      font-size: 0.9rem;
+    }
+    .header-search input {
+      border: none;
+      background: transparent;
+      padding: 0.3rem 0;
+      width: 150px;
+      font-size: 0.9rem;
+      outline: none;
+      color: var(--text-primary);
+    }
+    .header-search input::placeholder {
+      color: var(--text-muted);
+    }
+    .header-search button {
+      background: var(--accent-main);
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .header-search button:hover {
+      background: var(--accent-dark);
+    }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+
+    /* ---------- 主容器布局：三栏门户 ---------- */
+    .page-wrapper {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 1.75rem 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 170px 1fr 250px;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    /* ---------- 左侧频道索引 ---------- */
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--header-height) + var(--announce-height) + 20px);
+      background: var(--bg-sidebar);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 0.9rem;
+      font-size: 0.9rem;
+    }
+    .channel-sidebar h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+      font-weight: 600;
+    }
+    .channel-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .channel-list a {
+      display: block;
+      padding: 0.45rem 0.6rem;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+    .channel-list a:hover,
+    .channel-list a.active {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+    .channel-list .sub {
+      padding-left: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ---------- 首屏区域（主题视觉） ---------- */
+    .hero-section {
+      background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2rem 1.75rem;
+      margin-bottom: 1.75rem;
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-content h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+    }
+    .hero-content p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 1.2rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent-main);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      color: white;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--border-medium);
+      border-radius: 30px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: border-color 0.15s, color 0.15s;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      border-color: var(--accent-main);
+      color: var(--accent-main);
+    }
+    .hero-visual {
+      flex-shrink: 0;
+      width: 180px;
+      height: 180px;
+      background: var(--accent-main);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 3rem;
+      opacity: 0.9;
+      box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.3);
+    }
+
+    /* ---------- 主内容区通用样式 ---------- */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      min-width: 0;
+    }
+
+    .section-panel {
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.5rem 1.75rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+    .section-header h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text-primary);
+    }
+    .section-header .view-all {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent-main);
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1.1rem;
+    }
+    .card-item {
+      background: var(--bg-body);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      border: 1px solid var(--border-light);
+      transition: box-shadow 0.15s, transform 0.1s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-item:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .card-item .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      padding: 0.15rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.2px;
+      align-self: flex-start;
+    }
+    .card-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      line-height: 1.35;
+    }
+    .card-item p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* 紧凑列表 */
+    .compact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .compact-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed var(--border-light);
+      font-size: 0.9rem;
+    }
+    .compact-list li:last-child {
+      border-bottom: none;
+    }
+    .compact-list .item-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .compact-list .item-desc {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-left: 0.75rem;
+      flex: 1;
+    }
+    .compact-list .item-time {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      white-space: nowrap;
+      margin-left: 0.75rem;
+    }
+
+    /* 分类入口标签 */
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .category-tags .cat-tag {
+      background: var(--bg-body);
+      border: 1px solid var(--border-light);
+      border-radius: 30px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .category-tags .cat-tag:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent-main);
+      color: var(--accent-dark);
+    }
+
+    /* 深度解析正文 */
+    .deep-dive h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 1.2rem 0 0.6rem;
+    }
+    .deep-dive p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.8rem;
+      line-height: 1.7;
+    }
+    .deep-dive ul {
+      padding-left: 1.4rem;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    .deep-dive li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.6rem 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item summary {
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.3rem 0;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item summary::after {
+      content: "+";
+      font-size: 1.2rem;
+      color: var(--accent-main);
+      font-weight: 400;
+    }
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+    .faq-item p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      padding: 0.5rem 0 0.3rem;
+      line-height: 1.6;
+    }
+
+    /* 评论列表 */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .comment-item {
+      display: flex;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+    .comment-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--accent-dark);
+      font-size: 0.8rem;
+    }
+    .comment-body {
+      flex: 1;
+    }
+    .comment-body .nickname {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .comment-body .comment-text {
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .news-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+    .news-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      font-weight: 500;
+      min-width: 70px;
+    }
+    .news-content h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+    .news-content p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* 相关推荐标签索引 */
+    .recommend-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .recommend-tags .rec-tag {
+      background: var(--bg-body);
+      border-radius: 20px;
+      padding: 0.35rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-light);
+      transition: background 0.15s;
+    }
+    .recommend-tags .rec-tag:hover {
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+    }
+
+    /* 热门榜单 */
+    .rank-list {
+      list-style: none;
+      counter-reset: rank;
+    }
+    .rank-list li {
+      counter-increment: rank;
+      display: flex;
+      align-items: center;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.9rem;
+    }
+    .rank-list li:last-child {
+      border-bottom: none;
+    }
+    .rank-list li::before {
+      content: counter(rank);
+      font-weight: 700;
+      color: var(--accent-main);
+      width: 1.8rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .rank-list .rank-name {
+      font-weight: 600;
+      margin-right: 0.75rem;
+    }
+    .rank-list .rank-score {
+      margin-left: auto;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ---------- 右侧辅助栏 ---------- */
+    .aux-sidebar {
+      position: sticky;
+      top: calc(var(--header-height) + var(--announce-height) + 20px);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+    .aux-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .aux-card h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+      letter-spacing: -0.2px;
+    }
+    .aux-card .update-stream {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+    .aux-card .update-stream li {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-secondary);
+    }
+    .aux-card .update-stream .time {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    /* ---------- 页尾 ---------- */
+    .site-footer {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border-light);
+      padding: 2.5rem 1.5rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .footer-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-brand .brand-text {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      max-width: 280px;
+      line-height: 1.6;
+    }
+    .footer-col h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .footer-col ul {
+      list-style: none;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .footer-col ul a {
+      color: var(--text-secondary);
+    }
+    .footer-col ul a:hover {
+      color: var(--accent-main);
+    }
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 2rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1200px) {
+      .page-wrapper {
+        grid-template-columns: 150px 1fr 220px;
+        gap: 1.25rem;
+      }
+    }
+    @media (max-width: 1024px) {
+      .page-wrapper {
+        grid-template-columns: 1fr 240px;
+      }
+      .channel-sidebar {
+        display: none;
+      }
+      .hero-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-visual {
+        width: 120px;
+        height: 120px;
+        font-size: 2.5rem;
+        align-self: flex-end;
+      }
+    }
+    @media (max-width: 800px) {
+      .page-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .aux-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .main-nav {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .header-search {
+        display: none;
+      }
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .aux-sidebar {
+        grid-template-columns: 1fr;
+      }
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      .section-panel {
+        padding: 1.25rem;
+      }
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .header-container {
+        padding: 0 1rem;
+      }
+      .announce-bar {
+        font-size: 0.8rem;
+        padding: 0 1rem;
+      }
+      .page-wrapper {
+        padding: 1rem;
+      }
+    }
+
+    /* 辅助类 */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+    .text-highlight {
+      background: var(--accent-soft);
+      padding: 0 0.2rem;
+      border-radius: 3px;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar" id="announce-bar">
+  <div class="announce-inner">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <span>本周新增 8 场每日大赛复盘 · 11 月 8 日赛果已更新 · 社区热评 24 条</span>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-container">
+    <div class="brand-area">
+      <div class="brand-icon" aria-hidden="true">R</div>
+      <div class="brand-text">r星每日大赛吃瓜</div>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="/#hero">首页</a>
+      <a href="/#daily-results">今日赛果</a>
+      <a href="/#featured">精选对局</a>
+      <a href="/#deep-dive">深度复盘</a>
+      <a href="/#community">社区热评</a>
+    </nav>
+    <div class="header-actions">
+      <div class="header-search">
+        <input type="text" placeholder="搜索选手/对局..." aria-label="搜索选手或对局" id="searchInput">
+        <button aria-label="搜索" id="searchBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+      <button class="mobile-menu-btn" aria-label="打开菜单" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 主内容区域：三栏门户 -->
+<div class="page-wrapper">
+
+  <!-- 左侧频道索引 -->
+  <aside class="channel-sidebar" aria-label="频道索引">
+    <h3>赛事频道</h3>
+    <ul class="channel-list">
+      <li><a href="/#hero" class="active">今日大赛</a></li>
+      <li><a href="/#daily-results">赛果速递</a></li>
+      <li><a href="/#featured">精选对局</a></li>
+      <li><a href="/#latest-updates">实时动态</a></li>
+      <li><a href="/#categories">分类筛选</a></li>
+      <li><a href="/#deep-dive">深度复盘</a></li>
+      <li><a href="/#guide">观赛指南</a></li>
+      <li><a href="/#faq">常见问答</a></li>
+      <li><a href="/#comments">玩家评论</a></li>
+      <li><a href="/#news">相关资讯</a></li>
+      <li><a href="/#recommend">延伸推荐</a></li>
+      <li><a href="/#ranking">热门榜单</a></li>
+    </ul>
+  </aside>
+
+  <!-- 中间主内容 -->
+  <main class="main-content">
+
+    <!-- 首屏区域 -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        <h1>r星每日大赛吃瓜</h1>
+        <p>聚合每日大赛赛果、选手高光、争议判罚与社区热评。从速通竞速到花式玩法，追踪当天最值得围观的赛事现场。</p>
+        <div class="hero-buttons">
+          <a href="/#daily-results" class="btn-primary">查看今日赛果</a>
+          <a href="/#featured" class="btn-outline">精选对局</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 1. 主题领域概览 -->
+    <section class="section-panel" id="overview">
+      <div class="section-header">
+        <h2>每日大赛吃瓜全景</h2>
+      </div>
+      <p style="font-size:0.98rem;line-height:1.75;color:var(--text-secondary);">
+        “r星每日大赛吃瓜”关注的是围绕热门游戏每日赛事形成的即时讨论场。这里既有当日竞速赛果、淘汰赛对阵，也有选手失误与高光操作带来的社区热议。当前每日大赛主要覆盖《GTA 在线模式》竞速挑战、《荒野大镖客 2》速通趣味赛以及社区自制的花式玩法赛。每天下午和晚间两个时段集中产出对局，赛后一小时内社区讨论量最大。玩家们讨论的焦点通常集中在：哪位选手刷新了个人纪录、哪条赛道出现黑马、裁判判罚是否合理，以及下一场对阵的晋级形势。如果你习惯赛后翻看复盘和评论，这里汇总了当天最值得一看的赛况片段和争议点。
+      </p>
+    </section>
+
+    <!-- 2. 精选内容推荐：卡片网格 -->
+    <section class="section-panel" id="featured">
+      <div class="section-header">
+        <h2>今日精选对局</h2>
+        <a href="/#ranking" class="view-all">查看榜单 →</a>
+      </div>
+      <div class="card-grid">
+        <article class="card-item">
+          <span class="tag">竞速赛</span>
+          <h3>佩里科岛环岛冲刺赛</h3>
+          <p>选手“老崔不飙车”以 2 分 11 秒刷新赛道纪录，最后弯道超车引发热议。</p>
+          <div class="card-meta"><span>🔥 热度 9.2</span><span>11-08</span></div>
+        </article>
+        <article class="card-item">
+          <span class="tag">速通</span>
+          <h3>荒野大镖客 2 第三章速通</h3>
+          <p>“亚瑟日记”以 47 分 33 秒完成第三章主线，跳过两段对话节省 12 秒。</p>
+          <div class="card-meta"><span>🔥 热度 8.7</span><span>11-08</span></div>
+        </article>
+        <article class="card-item">
+          <span class="tag">花式赛</span>
+          <h3>洛圣都特技摩托之夜</h3>
+          <p>“飞天小女警”在最后 10 秒完成双空翻接后轮滑，绝杀夺冠。</p>
+          <div class="card-meta"><span>🔥 热度 8.9</span><span>11-07</span></div>
+        </article>
+        <article class="card-item">
+          <span class="tag">团队赛</span>
+          <h3>4v4 商战对抗赛决赛</h3>
+          <p>“洛圣都商会”让二追三，决胜局靠一次声东击西的货车护送翻盘。</p>
+          <div class="card-meta"><span>🔥 热度 9.5</span><span>11-08</span></div>
+        </article>
+        <article class="card-item">
+          <span class="tag">竞速赛</span>
+          <h3>机场跑道短途冲刺</h3>
+          <p>新人“小哑巴”驾驶义警跑出 58.21 秒，挤进历史前五。</p>
+          <div class="card-meta"><span>🔥 热度 8.1</span><span>11-07</span></div>
+        </article>
+        <article class="card-item">
+          <span class="tag">趣味赛</span>
+          <h3>高尔夫一杆进洞挑战</h3>
+          <p>“麦克”在第 7 洞打出 168 码一杆进洞，成为本周最佳瞬间。</p>
+          <div class="card-meta"><span>🔥 热度 7.8</span><span>11-06</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. 最新更新 / 热播 / 动态 -->
+    <section class="section-panel" id="latest-updates">
+      <div class="section-header">
+        <h2>实时赛果动态</h2>
+      </div>
+      <ul class="compact-list">
+        <li><span class="item-name">佩里科岛环岛冲刺赛</span><span class="item-desc">“老崔不飙车”夺冠，成绩 2:11.43</span><span class="item-time">今天 14:20</span></li>
+        <li><span class="item-name">4v4 商战对抗赛</span><span class="item-desc">洛圣都商会 3:2 逆转夺冠</span><span class="item-time">今天 13:05</span></li>
+        <li><span class="item-name">荒野大镖客 2 速通</span><span class="item-desc">“亚瑟日记”刷新第三章个人纪录</span><span class="item-time">今天 11:40</span></li>
+        <li><span class="item-name">特技摩托之夜</span><span class="item-desc">“飞天小女警”决赛轮 98.7 分夺冠</span><span class="item-time">昨天 21:30</span></li>
+        <li><span class="item-name">机场跑道短途冲刺</span><span class="item-desc">“小哑巴”以 0.3 秒优势晋级</span><span class="item-time">昨天 19:15</span></li>
+        <li><span class="item-name">高尔夫一杆进洞挑战</span><span class="item-desc">“麦克”连续两洞抓鸟，总杆 -5</span><span class="item-time">11-06 16:50</span></li>
+        <li><span class="item-name">每日大赛积分榜更新</span><span class="item-desc">“老崔不飙车”升至总榜第三</span><span class="item-time">11-05 10:00</span></li>
+        <li><span class="item-name">商战对抗赛半决赛</span><span class="item-desc">“佩里科岛联队”因超时被判负</span><span class="item-time">11-04 20:30</span></li>
+      </ul>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="section-panel" id="categories">
+      <div class="section-header">
+        <h2>按类型找对局</h2>
+      </div>
+      <div class="category-tags">
+        <a href="/#featured" class="cat-tag">竞速赛</a>
+        <a href="/#featured" class="cat-tag">速通挑战</a>
+        <a href="/#featured" class="cat-tag">花式特技</a>
+        <a href="/#featured" class="cat-tag">团队商战</a>
+        <a href="/#featured" class="cat-tag">高尔夫趣味赛</a>
+        <a href="/#featured" class="cat-tag">摩托竞速</a>
+        <a href="/#featured" class="cat-tag">生存挑战</a>
+        <a href="/#featured" class="cat-tag">社区自制赛</a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析正文 -->
+    <section class="section-panel deep-dive" id="deep-dive">
+      <div class="section-header">
+        <h2>每日大赛深度复盘</h2>
+      </div>
+      <h3>竞速赛的胜负手：路线与载具选择</h3>
+      <p>在佩里科岛环岛冲刺这类短途赛道，胜负往往差在 0.5 秒以内。选手“老崔不飙车”这次选择的是义警而非传统超跑，义警的起步加速优势在第一个弯道前就能建立半个车身距离。但也有人质疑义警在连续弯道的操控劣势，实际上他通过提前刹车点和晚入弯弥补了这一点。对比 11 月 7 日机场跑道赛，冠军“小哑巴”用的是经典超跑，靠尾流吸车在最后直道完成反超。两条赛道的差异决定了载具策略完全不同。</p>
+      <h3>速通赛的规则边界与争议</h3>
+      <p>荒野大镖客 2 速通赛允许跳过过场动画，但禁止利用穿墙或卡地形。11 月 8 日“亚瑟日记”的 47 分 33 秒成绩中，有一段跳过对话的操作被裁判复核后确认合规。社区争议主要集中在他跳过两段剧情对话是否属于“利用游戏机制”而非“操作技巧”。赛事规则第 4.2 条明确：跳过对话属于允许范围，但利用对话触发点卡位则判违规。这类边界问题几乎每周都会出现，也是吃瓜讨论的高频话题。</p>
+      <h3>团队商战的战术分层</h3>
+      <p>4v4 商战对抗赛决赛中，“洛圣都商会”让二追三的关键在于第三局开始调整了货车护送分工。他们让两名队员前压干扰，另外两人分走不同路线，迫使对手分散火力。这种战术在社区里被称为“双线佯攻”，最早在 10 月的周赛中出现，但决赛级别的执行精度明显更高。如果你关注团队赛，可以重点看第三局和决胜局的货车路线选择，能明显看出指挥者的临场判断。</p>
+      <ul>
+        <li>竞速赛看起步 3 秒和最后直道尾流。</li>
+        <li>速通赛关注规则复核公告，争议往往在赛后 1 小时发酵。</li>
+        <li>团队赛重点看资源分配和佯攻路线。</li>
+      </ul>
+    </section>
+
+    <!-- 6. 体验指南 / 消费路径 -->
+    <section class="section-panel" id="guide">
+      <div class="section-header">
+        <h2>观赛与吃瓜指南</h2>
+      </div>
+      <p style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:0.8rem;">如果你是第一次关注每日大赛，建议按以下顺序切入：</p>
+      <ol style="padding-left:1.4rem;font-size:0.95rem;color:var(--text-secondary);display:flex;flex-direction:column;gap:0.5rem;">
+        <li><strong>先看赛果速递：</strong>用 2 分钟了解今天谁赢了、成绩如何、有没有破纪录。</li>
+        <li><strong>再挑精选对局回放：</strong>优先看热度 8.5 以上的对局，通常有争议或高光操作。</li>
+        <li><strong>翻社区评论：</strong>重点看带具体选手名和赛道名的评论，能快速抓到讨论焦点。</li>
+        <li><strong>读深度复盘：</strong>如果对某个战术或判罚好奇，复盘文章会解释规则和决策逻辑。</li>
+        <li><strong>延伸关注：</strong>喜欢竞速的收藏“佩里科岛环岛”和“机场跑道”标签；喜欢速通的收藏“荒野大镖客”系列。</li>
+      </ol>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section-panel" id="faq">
+      <div class="section-header">
+        <h2>常见问答</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;">
+        <details class="faq-item">
+          <summary>每日大赛一般什么时间更新赛果？</summary>
+          <p>下午场通常在 14:30 前更新赛果，晚间场在 21:30 前更新。遇到争议判罚可能延后 1 小时左右公布复核结果。</p>
+        </details>
+        <details class="faq-item">
+          <summary>竞速赛和速通赛的评判标准有什么区别？</summary>
+          <p>竞速赛以完成时间为唯一标准，同成绩看录像回放判定先后；速通赛除时间外还审查是否利用违规机制，如穿墙、卡地形等，违规会加罚时间或取消成绩。</p>
+        </details>
+        <details class="faq-item">
+          <summary>第一次看每日大赛，从哪个对局开始比较好？</summary>
+          <p>推荐从“佩里科岛环岛冲刺赛”或“机场跑道短途冲刺”入手，赛道短、节奏快，容易看懂。团队赛建议先看决赛局，战术意图更明显。</p>
+        </details>
+        <details class="faq-item">
+          <summary>选手“老崔不飙车”为什么总用义警参赛？</summary>
+          <p>义警的起步加速在短途赛道优势明显，他在多个环岛类赛道靠起步建立领先。但连续弯道多的赛道他会换回经典超跑，比如机场跑道赛。</p>
+        </details>
+        <details class="faq-item">
+          <summary>社区里说的“双线佯攻”是什么意思？</summary>
+          <p>团队商战中的一种战术：两名队员前压吸引火力，另外两人分走不同路线护送货车，让对手无法判断主攻方向。最早在 10 月周赛出现。</p>
+        </details>
+        <details class="faq-item">
+          <summary>速通赛中跳过对话算违规吗？</summary>
+          <p>根据现行规则第 4.2 条，跳过对话属于允许操作，但利用对话触发点卡位或穿模则判违规。裁判会在赛后复核录像。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="section-panel" id="comments">
+      <div class="section-header">
+        <h2>玩家热评</h2>
+      </div>
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="comment-avatar">崔</div>
+          <div class="comment-body"><span class="nickname">崔佛的邻居</span><span class="comment-text">老崔最后那个弯道超车真的离谱，义警的抓地力能有那种表现？</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">亚</div>
+          <div class="comment-body"><span class="nickname">亚瑟日记本</span><span class="comment-text">速通 47 分 33 秒，比上周快了 9 秒，但跳对话那段裁判居然没查？</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">洛</div>
+          <div class="comment-body"><span class="nickname">洛圣都车神</span><span class="comment-text">机场跑道那个尾流吸车太经典了，小哑巴是真的敢贴。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">飞</div>
+          <div class="comment-body"><span class="nickname">飞天小女警本人</span><span class="comment-text">双空翻接后轮滑练了两个月，决赛敢用出来我自己都怕。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">商</div>
+          <div class="comment-body"><span class="nickname">商战指挥家</span><span class="comment-text">洛圣都商会第三局那个双线佯攻，对面直接懵了，货车都到终点了还在堵前压的人。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">佩</div>
+          <div class="comment-body"><span class="nickname">佩里科岛岛主</span><span class="comment-text">环岛赛用义警确实有争议，但规则没禁，赢了就是赢了。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">麦</div>
+          <div class="comment-body"><span class="nickname">麦克的球童</span><span class="comment-text">高尔夫一杆进洞那球我看了三遍回放，168 码直接滚进去的。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">新</div>
+          <div class="comment-body"><span class="nickname">新来的吃瓜群众</span><span class="comment-text">请问速通赛的规则在哪里看？想搞清楚跳对话到底算不算违规。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">裁</div>
+          <div class="comment-body"><span class="nickname">裁判组观察员</span><span class="comment-text">第 4.2 条已经写得很清楚了，跳过对话合规，卡触发点才违规。别带节奏了。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">摩</div>
+          <div class="comment-body"><span class="nickname">摩托老炮</span><span class="comment-text">特技摩托之夜那个后轮滑接双空翻，放整个赛季也是前三的水平。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">小</div>
+          <div class="comment-body"><span class="nickname">小哑巴冲鸭</span><span class="comment-text">第一次进决赛就拿第三，下次机场跑道我要破 57 秒。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">吃</div>
+          <div class="comment-body"><span class="nickname">吃瓜不吐籽</span><span class="comment-text">每天就等赛后一小时来看评论，比比赛还热闹。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">积</div>
+          <div class="comment-body"><span class="nickname">积分榜守门员</span><span class="comment-text">老崔升到第三了，下一场要是再赢就第二了，刺激。</span></div>
+        </div>
+        <div class="comment-item">
+          <div class="comment-avatar">商</div>
+          <div class="comment-body"><span class="nickname">商战替补</span><span class="comment-text">半决赛佩里科岛联队超时被判负有点冤，但规则就是规则。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="section-panel" id="news">
+      <div class="section-header">
+        <h2>赛事相关资讯</h2>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-date">11-08</div>
+          <div class="news-content">
+            <h4>每日大赛积分榜更新：老崔不飙车升至第三</h4>
+            <p>凭借佩里科岛环岛赛冠军，老崔的赛季积分来到 128 分，距离第二名仅差 7 分。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">11-07</div>
+          <div class="news-content">
+            <h4>荒野大镖客速通赛裁判组发布第 4.2 条补充说明</h4>
+            <p>明确跳过对话合规，但利用对话触发点穿模仍属违规，赛后复核时间延长至 2 小时。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">11-06</div>
+          <div class="news-content">
+            <h4>社区自制赛“摩托之夜”观看人数创新高</h4>
+            <p>昨晚特技摩托之夜同时在线观看突破 2.3 万人，飞天小女警的最后一跳被剪成短视频热传。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">11-05</div>
+          <div class="news-content">
+            <h4>洛圣都商会确认参加下周商战邀请赛</h4>
+            <p>决赛 MVP 指挥“老麦”表示将尝试三线佯攻新战术，具体阵容下周公布。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">11-03</div>
+          <div class="news-content">
+            <h4>机场跑道短途冲刺赛报名人数破百</h4>
+            <p>下周周赛报名通道开启 12 小时即满员，新人“小哑巴”确认参赛。</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">11-01</div>
+          <div class="news-content">
+            <h4>高尔夫趣味赛新增“一杆进洞”特别奖</h4>
+            <p>从 11 月起，任意一杆进洞的选手将获得额外积分，麦克是首位获奖者。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="section-panel" id="recommend">
+      <div class="section-header">
+        <h2>延伸关注方向</h2>
+      </div>
+      <div class="recommend-tags">
+        <a href="/#featured" class="rec-tag">佩里科岛环岛赛历史成绩</a>
+        <a href="/#featured" class="rec-tag">荒野大镖客速通规则详解</a>
+        <a href="/#featured" class="rec-tag">洛圣都商战经典翻盘</a>
+        <a href="/#featured" class="rec-tag">特技摩托高分动作拆解</a>
+        <a href="/#featured" class="rec-tag">机场跑道尾流战术</a>
+        <a href="/#featured" class="rec-tag">高尔夫趣味赛一杆进洞合集</a>
+        <a href="/#featured" class="rec-tag">每日大赛新人参赛指南</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充板块：热门榜单 -->
+    <section class="section-panel" id="ranking">
+      <div class="section-header">
+        <h2>本周选手热度榜</h2>
+      </div>
+      <ul class="rank-list">
+        <li><span class="rank-name">老崔不飙车</span><span class="rank-score">热度 9.6</span></li>
+        <li><span class="rank-name">亚瑟日记</span><span class="rank-score">热度 9.3</span></li>
+        <li><span class="rank-name">洛圣都商会</span><span class="rank-score">热度 9.1</span></li>
+        <li><span class="rank-name">飞天小女警</span><span class="rank-score">热度 8.8</span></li>
+        <li><span class="rank-name">小哑巴</span><span class="rank-score">热度 8.5</span></li>
+        <li><span class="rank-name">麦克的球童</span><span class="rank-score">热度 8.0</span></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="aux-sidebar" aria-label="辅助信息">
+    <div class="aux-card">
+      <h3>今日更新流</h3>
+      <ul class="update-stream">
+        <li><span>佩里科岛环岛赛果</span><span class="time">14:20</span></li>
+        <li><span>商战决赛战报</span><span class="time">13:05</span></li>
+        <li><span>大镖客速通成绩</span><span class="time">11:40</span></li>
+        <li><span>摩托之夜决赛</span><span class="time">昨天 21:30</span></li>
+        <li><span>机场短途赛晋级</span><span class="time">昨天 19:15</span></li>
+        <li><span>高尔夫挑战赛果</span><span class="time">11-06</span></li>
+      </ul>
+    </div>
+    <div class="aux-card">
+      <h3>社区热议标签</h3>
+      <div class="recommend-tags" style="gap:0.4rem;">
+        <a href="/#comments" class="rec-tag" style="font-size:0.8rem;padding:0.25rem 0.8rem;">#义警争议</a>
+        <a href="/#comments" class="rec-tag" style="font-size:0.8rem;padding:0.25rem 0.8rem;">#速通规则</a>
+        <a href="/#comments" class="rec-tag" style="font-size:0.8rem;padding:0.25rem 0.8rem;">#双线佯攻</a>
+        <a href="/#comments" class="rec-tag" style="font-size:0.8rem;padding:0.25rem 0.8rem;">#尾流吸车</a>
+        <a href="/#comments" class="rec-tag" style="font-size:0.8rem;padding:0.25rem 0.8rem;">#一杆进洞</a>
+      </div>
+    </div>
+    <div class="aux-card">
+      <h3>明日赛程预告</h3>
+      <ul class="update-stream">
+        <li><span>机场跑道冲刺赛</span><span class="time">14:00</span></li>
+        <li><span>大镖客第二章速通</span><span class="time">16:30</span></li>
+        <li><span>商战邀请赛首轮</span><span class="time">20:00</span></li>
+      </ul>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="brand-text">r星每日大赛吃瓜</div>
+      <p>追踪每日大赛赛果、精选对局与社区热评。从竞速到速通，从花式特技到团队商战，一站围观。</p>
+    </div>
+    <div class="footer-col">
+      <h4>赛事</h4>
+      <ul>
+        <li><a href="/#daily-results">赛果速递</a></li>
+        <li><a href="/#featured">精选对局</a></li>
+        <li><a href="/#ranking">热门榜单</a></li>
+        <li><a href="/#latest-updates">实时动态</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>内容</h4>
+      <ul>
+        <li><a href="/#deep-dive">深度复盘</a></li>
+        <li><a href="/#guide">观赛指南</a></li>
+        <li><a href="/#comments">玩家评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>互动</h4>
+      <ul>
+        <li><a href="/#faq">常见问答</a></li>
+        <li><a href="/#recommend">延伸推荐</a></li>
+        <li><a href="/#categories">分类筛选</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 r星每日大赛吃瓜 · 内容聚合示例</span>
+    <span>部分内容为示例数据，仅用于展示页面结构</span>
+  </div>
+</footer>
+
+<!-- 轻量内联脚本：搜索与移动菜单 -->
+<script>
+  (function() {
+    // 搜索功能：简单的高亮/筛选（不破坏页面结构，仅做提示演示）
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    if (searchInput && searchBtn) {
+      const performSearch = () => {
+        const q = searchInput.value.trim();
+        if (!q) {
+          alert('请输入选手名或对局关键词');
+          return;
+        }
+        // 简单在页面内查找包含关键词的卡片或列表项
+        const allText = document.body.innerText;
+        if (allText.includes(q)) {
+          // 简单高亮，但不破坏原文；用滚动到第一个匹配位置替代
+          const elements = document.querySelectorAll('.card-item h3, .compact-list .item-name, .rank-name, .comment-body .nickname');
+          let found = null;
+          elements.forEach(el => {
+            if (!found && el.textContent.includes(q)) {
+              found = el;
+            }
+          });
+          if (found) {
+            found.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            found.style.transition = 'background 0.3s';
+            found.style.background = '#fef3c7';
+            setTimeout(() => { found.style.background = ''; }, 2000);
+          } else {
+            alert('未找到包含“' + q + '”的条目');
+          }
+        } else {
+          alert('未找到包含“' + q + '”的条目');
+        }
+      };
+      searchBtn.addEventListener('click', performSearch);
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') performSearch();
+      });
+    }
+
+    // 移动菜单按钮仅切换 aria 状态，不做复杂菜单（导航在移动端隐藏，但可通过页脚访问）
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+        // 可在此添加菜单显示逻辑，但为保持简单，仅切换状态并提示
+        if (!expanded) {
+          alert('导航菜单在桌面端显示，移动端请使用页脚链接。');
+        }
+      });
+    }
+
+    // 确保所有 /# 锚点平滑滚动（原生支持，无需额外代码）
+  })();
+</script>
+</body>
+          </html>
