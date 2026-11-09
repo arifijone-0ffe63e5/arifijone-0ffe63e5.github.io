@@ -1,0 +1,1805 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>51短剧未删减 - 短剧垂直内容聚合</title>
+  <meta name="description" content="51短剧未删减是短剧垂直内容聚合门户，提供都市甜宠、古装权谋、悬疑反转等类型短剧的未删减版条目、更新动态、分类入口与深度解析，适合短剧爱好者和内容挑选者参考。">
+  <meta name="keywords" content="短剧未删减版,都市甜宠短剧,古装权谋短剧,悬疑反转短剧,短剧更新动态">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231e2b4f'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='bold' fill='%23f2b84b' text-anchor='middle'%3E51%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --surface-alt: #f0ede6;
+      --ink: #1a1f2b;
+      --ink-muted: #5e6472;
+      --ink-light: #8a909e;
+      --primary: #1e2b4f;
+      --primary-soft: #2f3f6b;
+      --accent: #d44d3f;
+      --accent-soft: #faeae7;
+      --gold: #c99a3b;
+      --gold-soft: #faf3e0;
+      --border: #ddd9d0;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(26,31,43,0.06);
+      --shadow-md: 0 4px 14px rgba(26,31,43,0.08);
+      --font: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif;
+      --header-height: 112px;
+      --sticky-top: 0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 124px;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 吸顶公告条 + 页头 */
+    .sticky-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .announcement-bar {
+      background: var(--primary);
+      color: #f2e9d9;
+      font-size: 13px;
+      padding: 8px 0;
+      letter-spacing: 0.02em;
+    }
+
+    .announcement-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .announcement-bar .badge {
+      background: var(--gold);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 11px;
+      padding: 1px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .brand-text {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+
+    .main-nav a {
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--ink-muted);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      background: var(--surface-alt);
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 7px 16px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-solid {
+      display: inline-block;
+      padding: 7px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-solid:hover,
+    .btn-solid:focus-visible {
+      background: var(--primary-soft);
+    }
+
+    /* 首屏 */
+    .hero {
+      background: linear-gradient(135deg, #1e2b4f 0%, #2f3f6b 60%, #3b4d7a 100%);
+      color: #f0ece4;
+      padding: 52px 0 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,154,59,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,154,59,0.5);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: #c8cedd;
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .btn-solid {
+      background: var(--gold);
+      color: var(--primary);
+      font-weight: 700;
+      padding: 10px 26px;
+    }
+
+    .hero-actions .btn-solid:hover {
+      background: #dbb04f;
+    }
+
+    .hero-actions .btn-ghost {
+      display: inline-block;
+      padding: 10px 24px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 30px;
+      font-size: 14px;
+      color: #e8e4dc;
+      transition: border-color 0.2s;
+    }
+
+    .hero-actions .btn-ghost:hover {
+      border-color: var(--gold);
+    }
+
+    .hero-visual {
+      flex-shrink: 0;
+      width: 300px;
+      height: 200px;
+      position: relative;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 主体三栏 */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 172px minmax(0, 1fr) 252px;
+      gap: 28px;
+      padding: 36px 0 56px;
+      align-items: start;
+    }
+
+    /* 左频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: 128px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .channel-sidebar h2 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      padding: 0 16px 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .channel-list {
+      list-style: none;
+    }
+
+    .channel-list li a {
+      display: block;
+      padding: 7px 16px;
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+    }
+
+    .channel-list li a:hover,
+    .channel-list li a:focus-visible {
+      background: var(--surface-alt);
+      color: var(--primary);
+      border-left-color: var(--gold);
+    }
+
+    /* 主内容区 */
+    .main-content {
+      min-width: 0;
+    }
+
+    .section {
+      margin-bottom: 42px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    .section-header .sub {
+      font-size: 13px;
+      color: var(--ink-light);
+    }
+
+    .section-header .more-link {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .section-header .more-link:hover {
+      text-decoration: underline;
+    }
+
+    /* 概览 */
+    .overview-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 26px;
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .overview-box p + p {
+      margin-top: 10px;
+    }
+
+    .overview-box strong {
+      color: var(--primary);
+    }
+
+    /* 精选卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .drama-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drama-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .drama-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      background: var(--surface-alt);
+    }
+
+    .drama-card-body {
+      padding: 14px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drama-card-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .drama-meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 1px 8px;
+      border-radius: 20px;
+      background: var(--surface-alt);
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
+    .tag-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .tag-gold {
+      background: var(--gold-soft);
+      color: #8a6d1f;
+    }
+
+    .drama-card-body p {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .drama-stats {
+      display: flex;
+      gap: 14px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--ink-light);
+    }
+
+    .drama-stats span {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* 动态列表 */
+    .update-list {
+      list-style: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .update-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .update-list li:last-child {
+      border-bottom: none;
+    }
+
+    .update-list .update-name {
+      font-weight: 600;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .update-list .update-desc {
+      color: var(--ink-muted);
+      font-size: 13.5px;
+    }
+
+    .update-list .update-time {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--ink-light);
+      white-space: nowrap;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .category-item {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 14px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--primary);
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .category-item:hover,
+    .category-item:focus-visible {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    .category-item .cat-count {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--ink-light);
+      margin-top: 2px;
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 30px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .deep-dive h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .deep-dive h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 22px 0 8px;
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      margin-bottom: 10px;
+    }
+
+    .deep-dive ul {
+      margin: 8px 0 14px 20px;
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      line-height: 1.8;
+    }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .guide-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px 18px;
+      box-shadow: var(--shadow-sm);
+      counter-increment: step;
+      position: relative;
+    }
+
+    .guide-step::before {
+      content: counter(step);
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .guide-step h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .guide-step p {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+
+    /* FAQ */
+    .faq-list {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-list details {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-list details:last-child {
+      border-bottom: none;
+    }
+
+    .faq-list summary {
+      padding: 14px 20px;
+      font-weight: 600;
+      font-size: 14.5px;
+      color: var(--primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s;
+    }
+
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-list summary::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--ink-light);
+      font-weight: 400;
+    }
+
+    .faq-list details[open] summary::after {
+      content: '−';
+    }
+
+    .faq-list summary:hover {
+      background: var(--surface-alt);
+    }
+
+    .faq-list details[open] summary {
+      background: var(--surface-alt);
+    }
+
+    .faq-list .faq-answer {
+      padding: 0 20px 16px;
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.8;
+    }
+
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .comment-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .comment-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .comment-nick {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .comment-text {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+
+    .comment-text .item-ref {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      list-style: none;
+    }
+
+    .news-list li {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .news-list li:last-child {
+      border-bottom: none;
+    }
+
+    .news-date {
+      flex-shrink: 0;
+      font-size: 12px;
+      color: var(--ink-light);
+      width: 76px;
+      padding-top: 2px;
+    }
+
+    .news-body h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .news-body p {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* 相关推荐 */
+    .rel-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .rel-tags a {
+      display: inline-block;
+      padding: 7px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-size: 13px;
+      color: var(--ink-muted);
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .rel-tags a:hover,
+    .rel-tags a:focus-visible {
+      border-color: var(--gold);
+      color: var(--primary);
+      background: var(--gold-soft);
+    }
+
+    /* 补充板块：榜单 */
+    .rank-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 8px 0;
+      box-shadow: var(--shadow-sm);
+      list-style: none;
+    }
+
+    .rank-panel li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .rank-panel li:last-child {
+      border-bottom: none;
+    }
+
+    .rank-num {
+      width: 22px;
+      font-weight: 800;
+      color: var(--gold);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .rank-name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .rank-score {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* 右辅助栏 */
+    .aside-sidebar {
+      position: sticky;
+      top: 128px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .aside-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .aside-card h2 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .hot-list {
+      list-style: none;
+      counter-reset: hot;
+    }
+
+    .hot-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+      counter-increment: hot;
+    }
+
+    .hot-list li:last-child {
+      border-bottom: none;
+    }
+
+    .hot-list li::before {
+      content: counter(hot);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-light);
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .hot-list li:nth-child(1)::before,
+    .hot-list li:nth-child(2)::before {
+      color: var(--accent);
+    }
+
+    .hot-list a {
+      color: var(--ink-muted);
+      transition: color 0.15s;
+    }
+
+    .hot-list a:hover {
+      color: var(--primary);
+    }
+
+    .aside-note {
+      font-size: 12px;
+      color: var(--ink-light);
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+
+    .update-stream {
+      list-style: none;
+    }
+
+    .update-stream li {
+      font-size: 12.5px;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border);
+      color: var(--ink-muted);
+    }
+
+    .update-stream li:last-child {
+      border-bottom: none;
+    }
+
+    .update-stream .stream-time {
+      color: var(--ink-light);
+      font-size: 11px;
+      display: block;
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: var(--primary);
+      color: #b8c0d4;
+      padding: 40px 0 24px;
+      font-size: 13px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+
+    .footer-brand .brand-text {
+      color: #f0ece4;
+      font-size: 20px;
+    }
+
+    .footer-brand p {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #9aa3b9;
+    }
+
+    .footer-col h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #e8e4dc;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-col a {
+      display: block;
+      padding: 3px 0;
+      color: #9aa3b9;
+      font-size: 13px;
+      transition: color 0.15s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 18px;
+      font-size: 12px;
+      color: #7a839b;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .main-layout {
+        grid-template-columns: 1fr 240px;
+      }
+      .channel-sidebar {
+        display: none;
+      }
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .hero h1 {
+        font-size: 36px;
+      }
+      .hero-visual {
+        width: 220px;
+        height: 150px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 740px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px 0 40px;
+      }
+      .aside-sidebar {
+        position: static;
+        order: 2;
+      }
+      .main-content {
+        order: 1;
+      }
+      .hero {
+        padding: 32px 0 28px;
+      }
+      .hero-inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .hero h1 {
+        font-size: 28px;
+      }
+      .hero-visual {
+        width: 100%;
+        height: 120px;
+      }
+      .hero-desc {
+        font-size: 14px;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .comment-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .header-actions {
+        display: none;
+      }
+      .main-nav {
+        order: 3;
+        width: 100%;
+      }
+      .guide-steps {
+        grid-template-columns: 1fr;
+      }
+      .news-list li {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .news-date {
+        width: auto;
+      }
+    }
+
+    /* 焦点可见 */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrapper">
+  <div class="announcement-bar">
+    <div class="container">
+      <span class="badge">更新</span>
+      <span>本周新增 14 条未删减短剧条目 · 《暗河传》未删减版 11 月 8 日上线 · 《夜棠》第 6 集解禁</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="51短剧未删减首页">
+        <svg viewBox="0 0 100 100" width="38" height="38" aria-hidden="true">
+          <rect width="100" height="100" rx="20" fill="#1e2b4f"/>
+          <text x="50" y="68" font-size="52" font-family="sans-serif" font-weight="bold" fill="#f2b84b" text-anchor="middle">51</text>
+        </svg>
+        <span class="brand-text">51短剧未删减</span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="#featured">精选短剧</a>
+        <a href="#updates">更新动态</a>
+        <a href="#categories">分类入口</a>
+        <a href="#deep-dive">深度解析</a>
+        <a href="#faq">常见问答</a>
+        <a href="#comments">用户评论</a>
+        <a href="#rank">热度榜</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#featured" class="btn-outline">浏览条目</a>
+        <a href="#updates" class="btn-solid">最新更新</a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-eyebrow">未删减版短剧聚合</span>
+      <h1>51短剧未删减</h1>
+      <p class="hero-desc">汇聚都市甜宠、古装权谋、悬疑反转、年代情感等类型的未删减版短剧条目，提供分集更新动态、分类索引、深度解析与用户真实讨论，面向短剧深度观众和挑选参考者。</p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn-solid">查看精选条目</a>
+        <a href="#updates" class="btn-ghost">今日更新动态</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 300 200" role="img" aria-label="短剧分集播放界面抽象示意图">
+        <rect x="10" y="10" width="280" height="180" rx="12" fill="#2a3a5e" stroke="#4a5d8a" stroke-width="1.5"/>
+        <rect x="26" y="26" width="100" height="8" rx="4" fill="#4a5d8a"/>
+        <rect x="26" y="44" width="180" height="6" rx="3" fill="#3a4a6e"/>
+        <rect x="26" y="58" width="140" height="6" rx="3" fill="#3a4a6e"/>
+        <circle cx="80" cy="120" r="26" fill="#c99a3b" opacity="0.9"/>
+        <polygon points="72,108 72,132 92,120" fill="#1e2b4f"/>
+        <rect x="130" y="96" width="60" height="6" rx="3" fill="#5a6d96"/>
+        <rect x="130" y="110" width="90" height="5" rx="2.5" fill="#4a5d8a"/>
+        <rect x="130" y="124" width="70" height="5" rx="2.5" fill="#4a5d8a"/>
+        <rect x="130" y="146" width="50" height="16" rx="8" fill="#c99a3b" opacity="0.25"/>
+        <rect x="188" y="146" width="50" height="16" rx="8" fill="#4a5d8a" opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 主体三栏 -->
+<div class="container main-layout">
+  <!-- 左频道 -->
+  <aside class="channel-sidebar" aria-label="频道索引">
+    <h2>频道索引</h2>
+    <ul class="channel-list">
+      <li><a href="#featured">都市甜宠</a></li>
+      <li><a href="#featured">古装权谋</a></li>
+      <li><a href="#featured">悬疑反转</a></li>
+      <li><a href="#featured">年代情感</a></li>
+      <li><a href="#featured">校园青春</a></li>
+      <li><a href="#featured">职场逆袭</a></li>
+      <li><a href="#deep-dive">未删减差异</a></li>
+      <li><a href="#guide">观看顺序</a></li>
+      <li><a href="#faq">更新频率</a></li>
+      <li><a href="#rank">口碑榜单</a></li>
+    </ul>
+  </aside>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+
+    <!-- 板块1：主题领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-header">
+        <h2>短剧未删减领域概览</h2>
+        <span class="sub">类型与方向</span>
+      </div>
+      <div class="overview-box">
+        <p><strong>51短剧未删减</strong>指向的是短剧内容中保留完整剧情、未做删减处理的版本聚合。这个领域当前主要包含几个方向：都市甜宠类以高密度情感互动和快节奏推进为特征，古装权谋类侧重人物关系反转与朝堂博弈，悬疑反转类依靠信息差和结局颠覆吸引观众，年代情感类则用时代背景包裹家庭伦理与成长叙事。</p>
+        <p>未删减版的关注点集中在补充情节的完整性上——被删减的片段往往涉及人物动机的铺垫、关键转折的细节或情感关系的递进。对于短剧观众来说，判断一个未删减版本是否值得投入时间，通常看补充内容是否影响主线理解、是否包含角色弧光的关键节点。当前值得关注的具体内容方向包括都市甜宠中的“先婚后爱”变体、古装权谋中的双强对峙结构，以及悬疑短剧里的多线叙事尝试。</p>
+      </div>
+    </section>
+
+    <!-- 板块2：精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-header">
+        <h2>精选未删减短剧</h2>
+        <span class="sub">6 部当前可看条目</span>
+        <a href="#rank" class="more-link">查看热度榜 →</a>
+      </div>
+      <div class="card-grid">
+        <article class="drama-card">
+          <img src="https://picsum.photos/seed/du-shi-tian-chong01/400/300" alt="都市甜宠短剧《暗河传》未删减版封面" width="400" height="300" loading="lazy">
+          <div class="drama-card-body">
+            <h3>《暗河传》未删减版</h3>
+            <div class="drama-meta">
+              <span class="tag tag-accent">都市甜宠</span>
+              <span class="tag">先婚后爱</span>
+              <span class="tag">商战</span>
+            </div>
+            <p>补充了男主家族背景的 12 分钟关键片段，解释了商业联姻的初始动机。第 4 集和第 7 集的情感递进更完整，适合关注人物心理变化的观众。</p>
+            <div class="drama-stats">
+              <span>热度 9280</span>
+              <span>更新至 18 集</span>
+              <span>评分 8.6</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="drama-card">
+          <img src="https://picsum.photos/seed/gu-zhuang-quan-mou02/400/300" alt="古装权谋短剧《夜棠》未删减版封面" width="400" height="300" loading="lazy">
+          <div class="drama-card-body">
+            <h3>《夜棠》未删减版</h3>
+            <div class="drama-meta">
+              <span class="tag tag-accent">古装权谋</span>
+              <span class="tag">双强</span>
+              <span class="tag">朝堂博弈</span>
+            </div>
+            <p>第 6 集解禁的朝堂对峙段落增加了两方势力的暗线交代。女主入宫前的家族背景在未删减版中有更清晰的铺垫，影响后续站队逻辑。</p>
+            <div class="drama-stats">
+              <span>热度 8815</span>
+              <span>更新至 22 集</span>
+              <span>评分 8.9</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="drama-card">
+          <img src="https://picsum.photos/seed/xuan-yi-fan-zhuan03/400/300" alt="悬疑反转短剧《第七个证人》未删减版封面" width="400" height="300" loading="lazy">
+          <div class="drama-card-body">
+            <h3>《第七个证人》未删减版</h3>
+            <div class="drama-meta">
+              <span class="tag tag-accent">悬疑反转</span>
+              <span class="tag">多线叙事</span>
+              <span class="tag">证据链</span>
+            </div>
+            <p>补充了第三个证人的完整询问过程，删减版中一笔带过的目击细节在完整版里成为推翻时间线的关键。适合喜欢自己拼线索的观众。</p>
+            <div class="drama-stats">
+              <span>热度 8450</span>
+              <span>全 24 集</span>
+              <span>评分 9.1</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="drama-card">
+          <img src="https://picsum.photos/seed/nian-dai-qing-gan04/400/300" alt="年代情感短剧《南风知我意》未删减版封面" width="400" height="300" loading="lazy">
+          <div class="drama-card-body">
+            <h3>《南风知我意》未删减版</h3>
+            <div class="drama-meta">
+              <span class="tag tag-accent">年代情感</span>
+              <span class="tag">家庭伦理</span>
+              <span class="tag">成长</span>
+            </div>
+            <p>恢复了 1980 年代背景中母亲角色的完整独白段落，这段戏是理解女主后期选择的关键。删减版中观众容易误读女主动机，完整版给出更充分的铺垫。</p>
+            <div class="drama-stats">
+              <span>热度 7920</span>
+              <span>更新至 30 集</span>
+              <span>评分 8.7</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="drama-card">
+          <img src="https://picsum.photos/seed/xiao-yuan-qing-chun05/400/300" alt="校园青春短剧《夏日回声》未删减版封面" width="400" height="300" loading="lazy">
+          <div class="drama-card-body">
+            <h3>《夏日回声》未删减版</h3>
+            <div class="drama-meta">
+              <span class="tag tag-accent">校园青春</span>
+              <span class="tag">群像</span>
+              <span class="tag">暗恋</span>
+            </div>
+            <p>增加了配角视角的支线片段，让班级群像更立体。第 9 集的天台对话在完整版中有更长的镜头，补足了男主沉默背后的家庭压力。</p>
+            <div class="drama-stats">
+              <span>热度 7630</span>
+              <span>全 20 集</span>
+              <span>评分 8.4</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="drama-card">
+          <img src="https://picsum.photos/seed/zhi-chang-ni-xi06/400/300" alt="职场逆袭短剧《破格》未删减版封面" width="400" height="300" loading="lazy">
+          <div class="drama-card-body">
+            <h3>《破格》未删减版</h3>
+            <div class="drama-meta">
+              <span class="tag tag-accent">职场逆袭</span>
+              <span class="tag">女性成长</span>
+              <span class="tag">行业剧</span>
+            </div>
+            <p>恢复了女主在提案被否后的完整复盘过程，这段 8 分钟的戏呈现了她从情绪化到策略化转变的节点。职场线比删减版更有说服力。</p>
+            <div class="drama-stats">
+              <span>热度 8100</span>
+              <span>更新至 16 集</span>
+              <span>评分 8.5</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 板块3：最新更新 / 动态 -->
+    <section class="section" id="updates">
+      <div class="section-header">
+        <h2>最新更新与热播动态</h2>
+        <span class="sub">2026 年 11 月 8 日汇总</span>
+      </div>
+      <ul class="update-list">
+        <li>
+          <span class="update-name">《暗河传》未删减版</span>
+          <span class="update-desc">第 18 集上线，补充男主与家族长辈的对话段落</span>
+          <span class="update-time">今天 09:30</span>
+        </li>
+        <li>
+          <span class="update-name">《夜棠》未删减版</span>
+          <span class="update-desc">第 6 集解禁，朝堂对峙段落增加 6 分钟暗线交代</span>
+          <span class="update-time">今天 08:15</span>
+        </li>
+        <li>
+          <span class="update-name">《第七个证人》未删减版</span>
+          <span class="update-desc">全 24 集完整上线，第三证人询问段落补全</span>
+          <span class="update-time">昨天 21:10</span>
+        </li>
+        <li>
+          <span class="update-name">《南风知我意》未删减版</span>
+          <span class="update-desc">第 29—30 集更新，母亲独白段落恢复</span>
+          <span class="update-time">昨天 19:40</span>
+        </li>
+        <li>
+          <span class="update-name">《破格》未删减版</span>
+          <span class="update-desc">第 16 集上线，女主提案复盘过程完整呈现</span>
+          <span class="update-time">11 月 6 日</span>
+        </li>
+        <li>
+          <span class="update-name">《夏日回声》未删减版</span>
+          <span class="update-desc">第 9 集天台对话加长版上线，补足男主家庭线</span>
+          <span class="update-time">11 月 5 日</span>
+        </li>
+        <li>
+          <span class="update-name">《暗河传》未删减版</span>
+          <span class="update-desc">第 16—17 集情感递进段落恢复，联姻动机更清晰</span>
+          <span class="update-time">11 月 3 日</span>
+        </li>
+        <li>
+          <span class="update-name">《夜棠》未删减版</span>
+          <span class="update-desc">第 5 集配角前史片段上线，影响后续站队理解</span>
+          <span class="update-time">11 月 1 日</span>
+        </li>
+        <li>
+          <span class="update-name">《第七个证人》未删减版</span>
+          <span class="update-desc">第 12 集证据链补充片段上线</span>
+          <span class="update-time">10 月 28 日</span>
+        </li>
+        <li>
+          <span class="update-name">《南风知我意》未删减版</span>
+          <span class="update-desc">第 25 集家庭冲突段落恢复</span>
+          <span class="update-time">10 月 25 日</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 板块4：分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-header">
+        <h2>按类型查找未删减短剧</h2>
+        <span class="sub">8 个分类入口</span>
+      </div>
+      <div class="category-grid">
+        <a href="#featured" class="category-item">都市甜宠<span class="cat-count">42 部</span></a>
+        <a href="#featured" class="category-item">古装权谋<span class="cat-count">36 部</span></a>
+        <a href="#featured" class="category-item">悬疑反转<span class="cat-count">28 部</span></a>
+        <a href="#featured" class="category-item">年代情感<span class="cat-count">24 部</span></a>
+        <a href="#featured" class="category-item">校园青春<span class="cat-count">19 部</span></a>
+        <a href="#featured" class="category-item">职场逆袭<span class="cat-count">22 部</span></a>
+        <a href="#guide" class="category-item">观看顺序<span class="cat-count">指南</span></a>
+        <a href="#deep-dive" class="category-item">未删减差异<span class="cat-count">解析</span></a>
+      </div>
+    </section>
+
+    <!-- 板块5：深度解析 -->
+    <section class="section" id="deep-dive">
+      <div class="deep-dive">
+        <h2>未删减版短剧的类型差异与判断维度</h2>
+
+        <h3>都市甜宠：未删减片段集中在关系递进节点</h3>
+        <p>都市甜宠类短剧的删减通常发生在情感转折的过渡段落。以《暗河传》为例，未删减版多出的 12 分钟集中在男主家族背景交代和商业联姻的初始动机上。这类补充内容的价值在于：观众能更早理解角色行为逻辑，而不是等到后期用台词补叙。判断一个都市甜宠未删减版是否值得优先选择，可以看补充片段是否涉及以下三类内容——角色前史、关系确认前的心理活动、配角对主线的推动。</p>
+
+        <h3>古装权谋：暗线交代决定后续站队逻辑</h3>
+        <p>古装权谋类的删减往往牺牲暗线铺垫。像《夜棠》第 6 集解禁的朝堂对峙段落，完整版中两方势力的幕后交易通过对话细节呈现，删减版则只保留结果。这类差异对追剧体验的影响很大：缺少暗线，观众容易把角色选择理解为突兀反转。比较古装权谋未删减版时，优先关注涉及势力关系、人物站队和情报传递的补充片段。</p>
+
+        <h3>悬疑反转：证据链完整度是核心指标</h3>
+        <p>悬疑反转类的未删减价值最高。以《第七个证人》为例，第三证人的完整询问过程在删减版中被压缩为一句台词，而完整版中目击细节的时间差正是推翻时间线的关键。判断悬疑短剧未删减版的质量，可以看补充内容是否让证据链更完整、是否提供了观众自行推理的素材。如果补充片段只是增加氛围镜头，实际推理价值有限。</p>
+
+        <h3>年代情感与校园青春：背景铺垫影响人物理解</h3>
+        <p>《南风知我意》恢复的母亲独白段落，是理解女主后期选择的关键。《夏日回声》天台对话加长版补足了男主沉默背后的家庭压力。这两类短剧的删减常发生在背景交代和群像塑造上，补充内容让角色动机更可追溯。对于年代情感和校园青春题材，未删减版的价值更多体现在人物弧光的完整性上，而不是情节反转。</p>
+
+        <h3>判断未删减版是否值得投入时间的四个维度</h3>
+        <ul>
+          <li><strong>补充时长占比：</strong>单集补充超过 5 分钟通常有实质内容，低于 2 分钟可能只是镜头微调。</li>
+          <li><strong>主线关联度：</strong>补充片段是否影响你对后续剧情的理解，是否解释此前觉得突兀的角色行为。</li>
+          <li><strong>类型匹配度：</strong>悬疑类优先看证据链补充，情感类优先看人物前史，权谋类优先看势力暗线。</li>
+          <li><strong>版本对比信息：</strong>是否有明确的删减内容说明，避免只标注“未删减”而无具体差异描述。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 板块6：体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-header">
+        <h2>短剧未删减版观看顺序指南</h2>
+        <span class="sub">从类型到条目的选择路径</span>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <h3>先确定类型偏好</h3>
+          <p>都市甜宠适合追求情感密度和快节奏的观众；古装权谋需要耐心跟进人物关系网；悬疑反转适合喜欢主动推理的人；年代情感更看重人物成长弧光。</p>
+        </div>
+        <div class="guide-step">
+          <h3>查看补充内容说明</h3>
+          <p>关注未删减版是否列出具体补充片段。有明确差异说明的条目，通常比只标“未删减”的版本更值得优先打开。</p>
+        </div>
+        <div class="guide-step">
+          <h3>比较单集补充时长</h3>
+          <p>单集补充 5 分钟以上往往包含完整场景，2 分钟以内可能只是镜头延展。优先选择补充时长有明确标注的条目。</p>
+        </div>
+        <div class="guide-step">
+          <h3>参考同类型口碑排序</h3>
+          <p>同一类型内先看评分和讨论热度较高的条目，这些通常代表该类型未删减版的普遍水准，再横向比较其他条目。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 板块7：FAQ -->
+    <section class="section" id="faq">
+      <div class="section-header">
+        <h2>关于未删减短剧的常见问答</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>未删减版和普通版的主要区别在哪里？</summary>
+          <div class="faq-answer">差异集中在三类内容：角色前史与动机铺垫、关键转折的细节镜头、配角对主线的推动段落。悬疑类补充证据链，情感类补充人物背景，权谋类补充势力暗线。普通版通常保留结果性画面，未删减版保留过程性内容。</div>
+        </details>
+        <details>
+          <summary>都市甜宠类未删减版一般补充哪些片段？</summary>
+          <div class="faq-answer">常见补充包括：男女主关系确认前的心理活动、家族背景交代、配角视角的关系推动。以《暗河传》为例，未删减版恢复了商业联姻动机的完整对话，让后续情感选择更有依据。</div>
+        </details>
+        <details>
+          <summary>第一次看悬疑反转短剧，从哪类条目开始比较好？</summary>
+          <div class="faq-answer">建议从证据链完整、单集信息量适中的条目入手，比如《第七个证人》这类多线叙事但每条线有明确指向的作品。先看完整版建立推理习惯，再横向比较其他悬疑短剧的未删减差异。</div>
+        </details>
+        <details>
+          <summary>古装权谋短剧的未删减版如何判断质量？</summary>
+          <div class="faq-answer">重点看补充片段是否涉及势力关系交代、人物站队逻辑和情报传递过程。这些内容直接影响你对后续剧情的理解。如果补充片段只是延长氛围镜头，实际价值有限。</div>
+        </details>
+        <details>
+          <summary>未删减短剧的更新频率一般是怎样的？</summary>
+          <div class="faq-answer">都市甜宠和校园青春类通常每周更新 4—6 集，古装权谋和悬疑类因为制作周期较长，常见每周 2—3 集。未删减版本的上线时间一般比普通版晚 1—3 天，具体看条目的排播说明。</div>
+        </details>
+        <details>
+          <summary>《夜棠》和《暗河传》的未删减版有什么区别？</summary>
+          <div class="faq-answer">《夜棠》是古装权谋，补充内容集中在朝堂暗线和势力博弈，适合喜欢人物关系网的观众；《暗河传》是都市甜宠，补充内容侧重情感递进和家族背景，节奏更快。两者类型不同，判断标准也不同：前者看暗线完整度，后者看动机铺垫。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 板块8：用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-header">
+        <h2>观众讨论与条目评价</h2>
+        <span class="sub">14 条来自短剧观众的反馈</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">林</span>
+            <span class="comment-nick">林间小筑</span>
+          </div>
+          <p class="comment-text">《暗河传》未删减版补的那段家族对话确实有用，之前看普通版一直觉得男主的选择太突然，完整版里动机交代清楚了。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">陈</span>
+            <span class="comment-nick">陈默看剧</span>
+          </div>
+          <p class="comment-text">《第七个证人》的未删减版是我今年看过最值的，第三证人的询问过程完整呈现后，时间线矛盾才说得通。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">苏</span>
+            <span class="comment-nick">苏打气泡</span>
+          </div>
+          <p class="comment-text">《夜棠》第 6 集解禁那段朝堂戏，完整版比普通版多了六分钟，暗线全在里面。就是更新太慢了，等得心急。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">周</span>
+            <span class="comment-nick">周周不熬夜</span>
+          </div>
+          <p class="comment-text">《南风知我意》母亲独白那段看哭我了，删减版里没有这段，女主后面的选择确实显得生硬很多。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">吴</span>
+            <span class="comment-nick">吴聊看看</span>
+          </div>
+          <p class="comment-text">《夏日回声》天台戏加长后男主的家庭压力线清楚了，但整体节奏还是偏慢，看个人口味吧。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">郑</span>
+            <span class="comment-nick">郑在追剧</span>
+          </div>
+          <p class="comment-text">《破格》第 16 集的复盘段落补得好，女主从情绪化到策略化的转变终于有过程了，之前看普通版觉得跳得太快。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">王</span>
+            <span class="comment-nick">王老师看短剧</span>
+          </div>
+          <p class="comment-text">悬疑类未删减版普遍比甜宠类值，证据链一完整整个故事的质感就上来了。《第七个证人》推荐先看完整版。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">李</span>
+            <span class="comment-nick">李子熟了</span>
+          </div>
+          <p class="comment-text">《暗河传》更新到 18 集了，未删减版每集多的几分钟基本都在补人物前史，追起来比普通版累但更清楚。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">赵</span>
+            <span class="comment-nick">赵小刀</span>
+          </div>
+          <p class="comment-text">古装权谋的未删减版判断确实要看暗线，有些条目只标未删减但补的都是风景镜头，没太大意义。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">孙</span>
+            <span class="comment-nick">孙悟饭团</span>
+          </div>
+          <p class="comment-text">《夜棠》和《暗河传》都追了，一个是权谋一个是甜宠，未删减的补充方向完全不同，很难放一起比。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">刘</span>
+            <span class="comment-nick">刘六六</span>
+          </div>
+          <p class="comment-text">校园青春类的未删减版补充的群像片段挺有意思，《夏日回声》配角线让整个班级更真实了。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">何</span>
+            <span class="comment-nick">何处不相逢</span>
+          </div>
+          <p class="comment-text">《南风知我意》更新到 30 集，年代戏的未删减版重点在背景铺垫，喜欢快节奏的可能觉得慢。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">黄</span>
+            <span class="comment-nick">黄小仙</span>
+          </div>
+          <p class="comment-text">《破格》职场线完整版比普通版有说服力，提案复盘那段建议所有职场短剧都学学，别光拍结果。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <span class="comment-avatar">徐</span>
+            <span class="comment-nick">徐徐图之</span>
+          </div>
+          <p class="comment-text">希望更新动态里能标注每集具体补充了多久，这样一眼就能判断值不值得等未删减版。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 板块9：相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-header">
+        <h2>短剧未删减相关资讯</h2>
+        <span class="sub">11 月 8 日前后的动态</span>
+      </div>
+      <ul class="news-list">
+        <li>
+          <span class="news-date">2026-11-08</span>
+          <div class="news-body">
+            <h3>《暗河传》未删减版第 18 集上线，家族对话段落补全</h3>
+            <p>本次更新恢复了男主与家族长辈的完整对话，涉及商业联姻的初始条件。此前普通版中该段落仅以一句台词带过。</p>
+          </div>
+        </li>
+        <li>
+          <span class="news-date">2026-11-08</span>
+          <div class="news-body">
+            <h3>《夜棠》第 6 集未删减版解禁，暗线交代增加 6 分钟</h3>
+            <p>解禁片段包含两方势力的幕后交易细节，以及女主入宫前家族背景的补充镜头，影响后续朝堂站队逻辑。</p>
+          </div>
+        </li>
+        <li>
+          <span class="news-date">2026-11-07</span>
+          <div class="news-body">
+            <h3>《第七个证人》全 24 集未删减版上线，悬疑类讨论度上升</h3>
+            <p>完整版补全了第三证人的询问过程，社区讨论焦点集中在时间线矛盾和证据链的完整性上，成为近期悬疑短剧的对比样本。</p>
+          </div>
+        </li>
+        <li>
+          <span class="news-date">2026-11-06</span>
+          <div class="news-body">
+            <h3>《破格》第 16 集未删减版更新，职场复盘段落受关注</h3>
+            <p>女主提案被否后的完整复盘过程上线，这段 8 分钟的戏呈现了从情绪化到策略化的转变，被观众视为职场短剧的细节范例。</p>
+          </div>
+        </li>
+        <li>
+          <span class="news-date">2026-11-03</span>
+          <div class="news-body">
+            <h3>《南风知我意》恢复母亲独白段落，年代情感类未删减价值讨论</h3>
+            <p>第 29—30 集更新中恢复了 1980 年代背景的完整独白，观众围绕“背景铺垫是否影响人物理解”展开讨论。</p>
+          </div>
+        </li>
+        <li>
+          <span class="news-date">2026-10-28</span>
+          <div class="news-body">
+            <h3>《夏日回声》天台对话加长版上线，校园群像补充受好评</h3>
+            <p>第 9 集加长版补足了男主沉默背后的家庭压力线，配角视角的支线片段也让班级群像更立体。</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 板块10：相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-header">
+        <h2>延伸内容方向</h2>
+        <span class="sub">按具体条目与类型延伸</span>
+      </div>
+      <div class="rel-tags">
+        <a href="#deep-dive">先婚后爱短剧未删减对比</a>
+        <a href="#deep-dive">双强权谋短剧暗线解析</a>
+        <a href="#faq">悬疑短剧证据链怎么看</a>
+        <a href="#guide">年代情感剧观看顺序</a>
+        <a href="#featured">《暗河传》补充片段清单</a>
+        <a href="#featured">《第七个证人》时间线梳理</a>
+        <a href="#updates">本周未删减版更新汇总</a>
+        <a href="#rank">短剧未删减口碑排序</a>
+      </div>
+    </section>
+
+    <!-- 板块11：补充板块 - 热度榜 -->
+    <section class="section" id="rank">
+      <div class="section-header">
+        <h2>短剧未删减热度榜</h2>
+        <span class="sub">基于近 7 天讨论与评分综合</span>
+      </div>
+      <ol class="rank-panel">
+        <li>
+          <span class="rank-num">1</span>
+          <span class="rank-name">《第七个证人》未删减版</span>
+          <span class="rank-score">9.1</span>
+        </li>
+        <li>
+          <span class="rank-num">2</span>
+          <span class="rank-name">《夜棠》未删减版</span>
+          <span class="rank-score">8.9</span>
+        </li>
+        <li>
+          <span class="rank-num">3</span>
+          <span class="rank-name">《暗河传》未删减版</span>
+          <span class="rank-score">8.6</span>
+        </li>
+        <li>
+          <span class="rank-num">4</span>
+          <span class="rank-name">《南风知我意》未删减版</span>
+          <span class="rank-score">8.7</span>
+        </li>
+        <li>
+          <span class="rank-num">5</span>
+          <span class="rank-name">《破格》未删减版</span>
+          <span class="rank-score">8.5</span>
+        </li>
+        <li>
+          <span class="rank-num">6</span>
+          <span class="rank-name">《夏日回声》未删减版</span>
+          <span class="rank-score">8.4</span>
+        </li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="aside-sidebar" aria-label="辅助信息">
+    <div class="aside-card">
+      <h2>今日热看条目</h2>
+      <ol class="hot-list">
+        <li><a href="#featured">《暗河传》未删减版 · 第 18 集</a></li>
+        <li><a href="#featured">《夜棠》未删减版 · 第 6 集解禁</a></li>
+        <li><a href="#featured">《第七个证人》全 24 集</a></li>
+        <li><a href="#featured">《南风知我意》第 30 集</a></li>
+        <li><a href="#featured">《破格》第 16 集复盘段落</a></li>
+      </ol>
+    </div>
+    <div class="aside-card">
+      <h2>更新流</h2>
+      <ul class="update-stream">
+        <li><span class="stream-time">今天 09:30</span>《暗河传》第 18 集未删减版</li>
+        <li><span class="stream-time">今天 08:15</span>《夜棠》第 6 集解禁</li>
+        <li><span class="stream-time">昨天 21:10</span>《第七个证人》全集上线</li>
+        <li><span class="stream-time">昨天 19:40</span>《南风知我意》第 29—30 集</li>
+        <li><span class="stream-time">11 月 6 日</span>《破格》第 16 集</li>
+        <li><span class="stream-time">11 月 5 日</span>《夏日回声》第 9 集加长版</li>
+      </ul>
+    </div>
+    <div class="aside-card">
+      <h2>快速判断</h2>
+      <p class="aside-note">悬疑类优先看证据链补充 · 甜宠类优先看动机铺垫 · 权谋类优先看势力暗线 · 年代类优先看人物前史</p>
+    </div>
+  </aside>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-text">51短剧未删减</span>
+        <p>聚焦都市甜宠、古装权谋、悬疑反转等类型的未删减版短剧条目，提供分集更新动态、类型对比与观看顺序参考。</p>
+      </div>
+      <div class="footer-col">
+        <h3>类型入口</h3>
+        <a href="#featured">都市甜宠</a>
+        <a href="#featured">古装权谋</a>
+        <a href="#featured">悬疑反转</a>
+        <a href="#featured">年代情感</a>
+      </div>
+      <div class="footer-col">
+        <h3>内容栏目</h3>
+        <a href="#updates">更新动态</a>
+        <a href="#deep-dive">深度解析</a>
+        <a href="#guide">观看指南</a>
+        <a href="#faq">常见问答</a>
+      </div>
+      <div class="footer-col">
+        <h3>社区</h3>
+        <a href="#comments">用户评论</a>
+        <a href="#rank">热度榜单</a>
+        <a href="#news">相关资讯</a>
+        <a href="#related">延伸方向</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 51短剧未删减 · 内容聚合示例页</span>
+      <span>部分内容为示例数据，仅用于展示页面结构</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+                                   </html>
