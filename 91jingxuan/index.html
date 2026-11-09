@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>91精选网站 - 垂直内容聚合与精选推荐</title>
+    <meta name="description" content="91精选网站汇聚视频图文精选、榜单与深度解析，提供最新更新、分类入口和用户评论，适合喜欢一站式浏览精选内容的读者。">
+    <meta name="keywords" content="精选视频合集, 图文推荐, 热门榜单, 深度解析, 内容聚合">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1e2b'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='16' font-weight='bold' fill='%23f0b35b' text-anchor='middle'%3E91%3C/text%3E%3C/svg%3E">
+    <style>
+        /* ---------- 全局变量与重置 ---------- */
+        :root {
+            --bg: #f7f5f0;
+            --surface: #ffffff;
+            --surface-alt: #f2efe9;
+            --border: #e3dfd7;
+            --text-primary: #1e1e1e;
+            --text-secondary: #5a5a5a;
+            --text-muted: #8a8a8a;
+            --accent: #b85c1a;
+            --accent-light: #fdf3e9;
+            --accent-dark: #8f4a12;
+            --gold: #d4a24c;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.07);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            --header-height: 120px; /* 公告条 + 页头大致高度，用于scroll-padding */
+            --max-width: 1360px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-padding-top: 130px; /* 吸顶公告+页头预留 */
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        ul, ol {
+            list-style: none;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* ---------- 吸顶公告条 + 页头 ---------- */
+        .sticky-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .announcement-bar {
+            background-color: #2c241c;
+            color: #f0e6d8;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+        .announcement-bar strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .site-header {
+            background-color: var(--surface);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            padding: 12px 0;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand-logo {
+            flex-shrink: 0;
+        }
+        .brand-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+        .brand-text span {
+            color: var(--accent);
+        }
+        .header-nav {
+            display: flex;
+            gap: 24px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+        }
+        .header-nav a:hover {
+            color: var(--accent);
+        }
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .search-mini {
+            display: flex;
+            align-items: center;
+            background: var(--surface-alt);
+            border-radius: 999px;
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+        }
+        .search-mini input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.9rem;
+            width: 140px;
+            color: var(--text-primary);
+        }
+        .search-mini input::placeholder {
+            color: var(--text-muted);
+        }
+        .search-mini button {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0 4px;
+        }
+        .btn-outline {
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ---------- 首屏 ---------- */
+        .hero {
+            background: linear-gradient(135deg, #fdf9f3 0%, #f7f0e6 100%);
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 1.5px solid var(--border);
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: 0.2s;
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .hero-visual {
+            flex-shrink: 0;
+            width: 220px;
+            height: 220px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-visual svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.08));
+        }
+
+        /* ---------- 主内容三栏布局 ---------- */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 190px 1fr 260px;
+            gap: 28px;
+            padding: 32px 0 48px;
+            align-items: start;
+        }
+        /* 左栏频道索引 */
+        .channel-index {
+            position: sticky;
+            top: 130px;
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            padding: 16px 0;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+        .channel-index h2 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            padding: 0 18px 12px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+        }
+        .channel-index ul li a {
+            display: block;
+            padding: 8px 18px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: 0.15s;
+            border-left: 3px solid transparent;
+        }
+        .channel-index ul li a:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+            border-left-color: var(--accent);
+        }
+        .channel-index ul li a.active {
+            color: var(--accent);
+            font-weight: 600;
+            background: var(--accent-light);
+            border-left-color: var(--accent);
+        }
+        /* 中间主内容 */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+            min-width: 0;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        .section-sub {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .card-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            background: var(--surface-alt);
+        }
+        .card-body {
+            padding: 14px 16px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .card-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: var(--surface-alt);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .tag-accent {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 10px;
+            flex: 1;
+        }
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 8px;
+        }
+        /* 紧凑列表 */
+        .list-compact {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            padding: 4px 0;
+        }
+        .list-compact li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        .list-compact li:last-child {
+            border-bottom: none;
+        }
+        .list-compact .item-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .list-compact .item-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-left: 12px;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .list-compact .item-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            margin-left: 16px;
+        }
+        /* 分类入口 */
+        .category-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .chip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .chip:hover, .chip.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        /* 深度解析正文 */
+        .deep-dive {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            padding: 28px 32px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        .deep-dive h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 24px 0 12px;
+            color: var(--text-primary);
+        }
+        .deep-dive h3:first-of-type {
+            margin-top: 0;
+        }
+        .deep-dive p {
+            margin-bottom: 14px;
+            color: #2d2d2d;
+            line-height: 1.8;
+        }
+        .deep-dive ul {
+            list-style: disc;
+            padding-left: 24px;
+            margin-bottom: 16px;
+            color: #2d2d2d;
+        }
+        .deep-dive ul li {
+            margin-bottom: 6px;
+        }
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 14px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--surface);
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 400;
+        }
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+        .faq-item p {
+            padding: 0 18px 16px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        /* 用户评论 */
+        .comment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 14px;
+        }
+        .comment-card {
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            font-size: 0.9rem;
+        }
+        .comment-user {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        .comment-text {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        /* 相关资讯 */
+        .news-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            min-width: 80px;
+        }
+        .news-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .news-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        /* 相关推荐标签索引 */
+        .tag-index {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag-index a {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: 0.2s;
+        }
+        .tag-index a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+        /* 右侧辅助栏 */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            position: sticky;
+            top: 130px;
+        }
+        .sidebar-panel {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            padding: 18px 16px;
+            box-shadow: var(--shadow-sm);
+        }
+        .sidebar-panel h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .rank-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+        .rank-num {
+            font-weight: 700;
+            color: var(--accent);
+            min-width: 20px;
+            font-size: 0.85rem;
+        }
+        .rank-title {
+            flex: 1;
+            font-weight: 500;
+        }
+        .rank-score {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .update-feed li {
+            font-size: 0.85rem;
+            padding: 6px 0;
+            color: var(--text-secondary);
+            border-bottom: 1px dashed var(--border);
+        }
+        .update-feed li:last-child {
+            border-bottom: none;
+        }
+        /* 页尾 */
+        .site-footer {
+            background: #1e1e1e;
+            color: #b0b0b0;
+            padding: 40px 0 24px;
+            margin-top: 20px;
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 8px;
+            color: #9a9a9a;
+        }
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        .footer-col ul li {
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+        }
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 32px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: #7a7a7a;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr 260px;
+            }
+            .channel-index {
+                display: none;
+            }
+            .site-header .header-nav {
+                display: none;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 740px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .sidebar {
+                position: static;
+            }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-visual {
+                width: 160px;
+                height: 160px;
+            }
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .comment-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-mini input {
+                width: 100px;
+            }
+        }
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* 焦点样式 */
+        a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <div class="sticky-wrapper">
+        <div class="announcement-bar">
+            <strong>本周新增 18 条精选档案</strong> · 11 月 7 日“悬疑剧场”专题上线 · 秋季片单已更新
+        </div>
+        <header class="site-header">
+            <div class="container header-inner">
+                <div class="brand">
+                    <svg class="brand-logo" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="36" height="36" rx="8" fill="#1E1E1E"/>
+                        <text x="18" y="24" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#D4A24C" text-anchor="middle">91</text>
+                    </svg>
+                    <span class="brand-text">91精选<span>网站</span></span>
+                </div>
+                <nav class="header-nav" aria-label="主导航">
+                    <a href="/#精选推荐">精选推荐</a>
+                    <a href="/#最新更新">最新更新</a>
+                    <a href="/#深度解析">深度解析</a>
+                    <a href="/#用户评论">用户评论</a>
+                    <a href="/#相关资讯">相关资讯</a>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-mini">
+                        <input type="text" id="searchInput" placeholder="搜索精选内容..." aria-label="搜索精选内容">
+                        <button type="button" id="searchBtn" aria-label="搜索">🔍</button>
+                    </div>
+                    <a href="/#精选推荐" class="btn-outline">开始浏览</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <!-- 首屏 -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>91精选网站</h1>
+                    <p class="hero-desc">汇聚悬疑剧场、纪录片精选、独立短片、热门榜单与深度解析，每日更新值得投入时间的视频与图文内容。</p>
+                    <div class="hero-actions">
+                        <a href="/#精选推荐" class="btn-primary">浏览精选</a>
+                        <a href="/#最新更新" class="btn-secondary">查看今日更新</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="90" fill="#FDF3E9" stroke="#D4A24C" stroke-width="2"/>
+                        <rect x="55" y="65" width="90" height="55" rx="6" fill="#FFFFFF" stroke="#B85C1A" stroke-width="2"/>
+                        <polygon points="85,80 85,105 110,92.5" fill="#B85C1A"/>
+                        <circle cx="65" cy="140" r="10" fill="#D4A24C" opacity="0.6"/>
+                        <circle cx="135" cy="140" r="14" fill="#B85C1A" opacity="0.3"/>
+                        <rect x="70" y="130" width="60" height="4" rx="2" fill="#D4A24C" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三栏主体 -->
+        <div class="container main-layout">
+            <!-- 左：频道索引 -->
+            <aside class="channel-index" aria-label="频道索引">
+                <h2>内容频道</h2>
+                <ul>
+                    <li><a href="/#精选推荐" class="active">精选推荐</a></li>
+                    <li><a href="/#最新更新">最新更新</a></li>
+                    <li><a href="/#分类入口">分类入口</a></li>
+                    <li><a href="/#深度解析">深度解析</a></li>
+                    <li><a href="/#体验指南">体验指南</a></li>
+                    <li><a href="/#用户评论">用户评论</a></li>
+                    <li><a href="/#相关资讯">相关资讯</a></li>
+                    <li><a href="/#相关推荐">相关推荐</a></li>
+                    <li><a href="/#热门榜单">热门榜单</a></li>
+                </ul>
+            </aside>
+
+            <!-- 中：主内容区 -->
+            <div class="main-content">
+
+                <!-- 板块1：主题领域概览 -->
+                <section id="领域概览">
+                    <h2 class="section-title">主题领域概览</h2>
+                    <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:12px;">91精选网站聚焦于“可消费的精选内容”，覆盖悬疑剧集、纪录片、独立短片、深度访谈、知识科普、生活美学与热门榜单。这里既有正在更新的《迷雾档案·第三季》《街角美食家》等剧集，也有《代码与荒野》《城市观察者》等纪录片，以及每周更新的“独立短片实验室”和“编辑私藏”图文专栏。悬疑类通常以 8—12 集的短剧形式在周五更新；纪录片多在工作日午间上线；独立短片则集中在周末发布。用户可以根据类型、更新节奏和口碑评分来做观看决策。</p>
+                </section>
+
+                <!-- 板块2：精选内容推荐 -->
+                <section id="精选推荐">
+                    <h2 class="section-title">精选内容推荐</h2>
+                    <p class="section-sub">近期口碑靠前的具体条目，覆盖悬疑、纪录片、短片与访谈。</p>
+                    <div class="card-grid">
+                        <article class="card">
+                            <img class="card-img" src="https://picsum.photos/seed/miwu-dangan47/400/300" alt="迷雾档案第三季封面" width="400" height="300" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">迷雾档案·第三季</h3>
+                                <div class="card-tags"><span class="tag tag-accent">悬疑</span><span class="tag">刑侦</span><span class="tag">短剧</span></div>
+                                <p class="card-desc">一桩尘封十年的悬案因匿名包裹重启，前刑警与档案修复师联手追查。本季共 10 集，已更新至第 6 集。</p>
+                                <div class="card-meta"><span>评分 9.1</span><span>更新至 11-07</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img class="card-img" src="https://picsum.photos/seed/da-ma-huangye12/400/300" alt="代码与荒野纪录片封面" width="400" height="300" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">代码与荒野</h3>
+                                <div class="card-tags"><span class="tag tag-accent">纪录片</span><span class="tag">科技</span><span class="tag">自然</span></div>
+                                <p class="card-desc">程序员深入无人区修复气象站，用代码记录极端环境下的数据变化。全 6 集已完结，适合一口气看完。</p>
+                                <div class="card-meta"><span>评分 8.8</span><span>已完结</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img class="card-img" src="https://picsum.photos/seed/duanpian-shiyanshi08/400/300" alt="独立短片实验室海报" width="400" height="300" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">独立短片实验室</h3>
+                                <div class="card-tags"><span class="tag tag-accent">短片</span><span class="tag">实验</span><span class="tag">周末</span></div>
+                                <p class="card-desc">每周六更新的短片单元，本周带来《回声》《末班地铁》两部作品，探讨城市孤独与记忆。</p>
+                                <div class="card-meta"><span>更新于 11-06</span><span>共 24 部</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img class="card-img" src="https://picsum.photos/seed/jiaolu-meishi22/400/300" alt="街角美食家剧照" width="400" height="300" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">街角美食家</h3>
+                                <div class="card-tags"><span class="tag tag-accent">美食</span><span class="tag">人文</span><span class="tag">城市</span></div>
+                                <p class="card-desc">跟随主持人探访五座城市的街边小店，记录手艺人的日常。第 4 集“深夜面馆”已于昨日上线。</p>
+                                <div class="card-meta"><span>评分 8.5</span><span>更新至 11-07</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img class="card-img" src="https://picsum.photos/seed/chengshi-guanchazhe15/400/300" alt="城市观察者纪录片封面" width="400" height="300" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">城市观察者</h3>
+                                <div class="card-tags"><span class="tag tag-accent">纪录片</span><span class="tag">社会</span><span class="tag">深度</span></div>
+                                <p class="card-desc">以一年为周期记录三个老旧社区的改造过程，呈现居民与设计师之间的碰撞与妥协。</p>
+                                <div class="card-meta"><span>评分 9.0</span><span>全 8 集</span></div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img class="card-img" src="https://picsum.photos/seed/zhishi-wenda33/400/300" alt="知识问答现场图片" width="400" height="300" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">知识问答·冬季场</h3>
+                                <div class="card-tags"><span class="tag tag-accent">知识</span><span class="tag">竞技</span><span class="tag">直播</span></div>
+                                <p class="card-desc">六位答主围绕“城市与自然”主题展开限时问答，本周日 20:00 直播决赛，可回看往期。</p>
+                                <div class="card-meta"><span>热度 2.4w</span><span>11-10 决赛</span></div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- 板块3：最新更新/热播动态 -->
+                <section id="最新更新">
+                    <h2 class="section-title">最新更新 · 热播动态</h2>
+                    <p class="section-sub">以 2026 年 11 月 8 日为基准的近期更新与预告。</p>
+                    <ul class="list-compact">
+                        <li><span class="item-name">迷雾档案·第三季</span><span class="item-desc">第 6 集“消失的访客”已上线</span><span class="item-date">今天 09:30</span></li>
+                        <li><span class="item-name">街角美食家</span><span class="item-desc">第 4 集“深夜面馆”更新</span><span class="item-date">昨天 21:10</span></li>
+                        <li><span class="item-name">独立短片实验室</span><span class="item-desc">新增短片《回声》《末班地铁》</span><span class="item-date">11-06</span></li>
+                        <li><span class="item-name">城市观察者</span><span class="item-desc">第 7 集“菜场改造”上线</span><span class="item-date">11-05</span></li>
+                        <li><span class="item-name">代码与荒野</span><span class="item-desc">全 6 集完结，开放限时回看</span><span class="item-date">11-04</span></li>
+                        <li><span class="item-name">知识问答·冬季场</span><span class="item-desc">公布决赛六人名单</span><span class="item-date">11-03</span></li>
+                        <li><span class="item-name">编辑私藏·图文</span><span class="item-desc">更新“独立杂志的选题逻辑”</span><span class="item-date">11-02</span></li>
+                        <li><span class="item-name">深夜放映室</span><span class="item-desc">新增《夜航》4K 修复版</span><span class="item-date">11-01</span></li>
+                    </ul>
+                </section>
+
+                <!-- 板块4：分类入口 -->
+                <section id="分类入口">
+                    <h2 class="section-title">分类入口</h2>
+                    <p class="section-sub">按内容类型快速定位，点击可筛选下方精选推荐。</p>
+                    <div class="category-chips" id="categoryChips">
+                        <button class="chip active" data-filter="all">全部</button>
+                        <button class="chip" data-filter="悬疑">悬疑</button>
+                        <button class="chip" data-filter="纪录片">纪录片</button>
+                        <button class="chip" data-filter="短片">短片</button>
+                        <button class="chip" data-filter="美食">美食</button>
+                        <button class="chip" data-filter="知识">知识</button>
+                        <button class="chip" data-filter="访谈">访谈</button>
+                        <button class="chip" data-filter="生活">生活</button>
+                        <button class="chip" data-filter="榜单">榜单</button>
+                    </div>
+                    <p id="filterFeedback" style="font-size:0.85rem;color:var(--text-muted);margin-top:8px;"></p>
+                </section>
+
+                <!-- 板块5：深度解析正文 -->
+                <section id="深度解析">
+                    <h2 class="section-title">深度解析</h2>
+                    <div class="deep-dive">
+                        <h3>悬疑类短剧的叙事节奏与判断标准</h3>
+                        <p>以《迷雾档案·第三季》为例，这类悬疑短剧通常采用“每集一个线索、三集一次反转”的结构。判断一部悬疑短剧是否值得追，可以先看前两集是否在 20 分钟内建立核心矛盾，再看配角是否具备独立动机。如果前两集只靠音效和闪回制造紧张，缺少可推理的细节，后续质量往往难以保证。</p>
+                        <p>另一条标准是“信息释放密度”：好的悬疑剧每集会释放 2—3 条有效线索，且线索之间可以交叉验证。《迷雾档案》第三季第 5 集通过一段修复的监控录像同时串联了三个角色的时间线，属于典型的高密度叙事。</p>
+                        <h3>纪录片与独立短片的消费差异</h3>
+                        <p>纪录片偏向完整叙事与长期观察，例如《城市观察者》用一整年记录社区变化，适合按周追更或一次性看完。独立短片则强调单点爆发，10—25 分钟内完成一个概念，适合在碎片时间观看“独立短片实验室”的更新。两者对观看环境的要求不同：纪录片更适合大屏或投影，短片则可以在通勤途中用手机看完。</p>
+                        <ul>
+                            <li><strong>纪录片判断维度：</strong>拍摄周期、被摄对象是否自然、旁白是否克制。</li>
+                            <li><strong>短片判断维度：</strong>概念是否新鲜、表演是否统一、结尾是否有力。</li>
+                            <li><strong>美食类：</strong>优先看食材来源和店主故事，而非单纯特写镜头。</li>
+                        </ul>
+                        <h3>榜单与编辑私藏的区别</h3>
+                        <p>“热门榜单”反映的是近 7 天的播放与互动趋势，适合发现当下讨论度高的条目；“编辑私藏”则更看重长尾价值，例如已经完结但结构精巧的《代码与荒野》。如果你希望快速跟上社区话题，优先看榜单；如果想挖掘冷门佳作，可以沿编辑私藏列表逐条浏览。</p>
+                    </div>
+                </section>
+
+                <!-- 板块6：体验指南 / 消费路径 -->
+                <section id="体验指南">
+                    <h2 class="section-title">体验指南 · 消费路径</h2>
+                    <div style="background:var(--surface);border-radius:var(--radius-md);padding:24px 28px;border:1px solid var(--border);">
+                        <p style="margin-bottom:16px;color:var(--text-secondary);">第一次接触91精选网站，可以按以下顺序建立自己的观看节奏：</p>
+                        <ol style="list-style:decimal;padding-left:22px;color:var(--text-secondary);line-height:2;">
+                            <li><strong>先看一集悬疑短剧</strong>，例如《迷雾档案·第三季》第 1 集，判断是否喜欢这种节奏。</li>
+                            <li><strong>用 20 分钟试看一部独立短片</strong>，如“独立短片实验室”的《回声》，感受单点叙事的强度。</li>
+                            <li><strong>挑一部纪录片加入周末片单</strong>，《城市观察者》或《街角美食家》均可，按题材兴趣选择。</li>
+                            <li><strong>在热门榜单中找一部高讨论度作品</strong>，了解社区正在聊什么。</li>
+                            <li><strong>最后用“编辑私藏”做延伸</strong>，把已经完结但评分稳定的作品加入待看列表。</li>
+                        </ol>
+                        <p style="margin-top:16px;color:var(--text-muted);font-size:0.9rem;">如果时间有限，优先看单集时长在 30 分钟以内的悬疑短剧和独立短片；纪录片建议留出完整时段观看。</p>
+                    </div>
+                </section>
+
+                <!-- 板块7：FAQ -->
+                <section id="faq">
+                    <h2 class="section-title">常见问题</h2>
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>悬疑短剧一般多久更新一次？</summary>
+                            <p>常见的悬疑短剧采用周更模式，例如《迷雾档案·第三季》每周五更新一集，每集 35—45 分钟。部分平台会一次性放出全集，但本页收录的条目以周更为主。</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>纪录片和独立短片的主要区别是什么？</summary>
+                            <p>纪录片通常有较长的拍摄周期和完整叙事结构，单集时长在 40—60 分钟，适合连续观看。独立短片强调概念和情绪，时长多在 10—25 分钟，适合碎片时间。</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>第一次看悬疑类，从哪部开始比较好？</summary>
+                            <p>建议从《迷雾档案·第三季》第 1 集开始，该剧单集信息密度适中，人物关系清晰，适合作为悬疑短剧的入门选择。如果偏好社会派，可以先看《城市观察者》。</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>“热门榜单”的排名依据是什么？</summary>
+                            <p>榜单综合近 7 天的播放完成率、收藏数和评论互动量计算，每日更新一次。排名靠前的条目通常兼具讨论度和完播率，但不完全代表长期口碑。</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>美食类内容推荐先看哪一部？</summary>
+                            <p>可以从《街角美食家》第 4 集“深夜面馆”开始，这一集聚焦夜间营业的小店，节奏轻松，食物特写与人物故事比例平衡，适合作为美食类入门。</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>知识问答直播有回放吗？</summary>
+                            <p>知识问答·冬季场的往期场次提供 48 小时回放，决赛场次在直播结束后保留一周。可以在最新更新板块查看回放上线通知。</p>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- 板块8：用户评论 -->
+                <section id="用户评论">
+                    <h2 class="section-title">用户评论</h2>
+                    <p class="section-sub">来自不同观众的观感，围绕具体条目展开。</p>
+                    <div class="comment-grid">
+                        <div class="comment-card"><div class="comment-user">江边散步</div><div class="comment-text">《迷雾档案》第 6 集的反转有点意外，但线索给得还算公平。</div></div>
+                        <div class="comment-card"><div class="comment-user">晚风枕书</div><div class="comment-text">《代码与荒野》最后一集把代码和气象数据结合得很好，值得再看一遍。</div></div>
+                        <div class="comment-card"><div class="comment-user">豆乳盒子</div><div class="comment-text">街角美食家第 4 集的面馆我去过，节目里拍得比实际好吃。</div></div>
+                        <div class="comment-card"><div class="comment-user">慢速快门</div><div class="comment-text">《城市观察者》第七集菜场改造太真实了，设计师和摊主的争论很典型。</div></div>
+                        <div class="comment-card"><div class="comment-user">九号站台</div><div class="comment-text">独立短片实验室的《回声》构图很好，但结尾稍微仓促。</div></div>
+                        <div class="comment-card"><div class="comment-user">青柠气泡</div><div class="comment-text">知识问答冬季场的赛制比上一季更紧凑，期待决赛。</div></div>
+                        <div class="comment-card"><div class="comment-user">旧书摊主</div><div class="comment-text">编辑私藏那篇“独立杂志的选题逻辑”干货很多，推荐给做内容的朋友。</div></div>
+                        <div class="comment-card"><div class="comment-user">雨雾天</div><div class="comment-text">《迷雾档案》第三季配乐有点抢戏，但整体还是想追完。</div></div>
+                        <div class="comment-card"><div class="comment-user">山手线</div><div class="comment-text">《夜航》4K 修复版画质提升明显，老片新看的感觉很好。</div></div>
+                        <div class="comment-card"><div class="comment-user">纸飞机</div><div class="comment-text">第一次看独立短片，选了《末班地铁》，比想象中好进入。</div></div>
+                        <div class="comment-card"><div class="comment-user">半糖去冰</div><div class="comment-text">美食类节目如果能多讲讲食材来源就更好了，现在还是以探店为主。</div></div>
+                        <div class="comment-card"><div class="comment-user">野原新之助</div><div class="comment-text">城市观察者每一集都像在讲身边的事，希望有第二季。</div></div>
+                        <div class="comment-card"><div class="comment-user">橘子汽水</div><div class="comment-text">热门榜单里《迷雾档案》排第一不意外，但《代码与荒野》应该更高。</div></div>
+                        <div class="comment-card"><div class="comment-user">穿堂风</div><div class="comment-text">街角美食家的旁白有点多，其实可以更安静一些。</div></div>
+                        <div class="comment-card"><div class="comment-user">木鱼水心</div><div class="comment-text">知识问答里那道“城市热岛”题出得好，现场答主反应也快。</div></div>
+                        <div class="comment-card"><div class="comment-user">一颗海盐</div><div class="comment-text">独立短片实验室每周六更新这个节奏很友好，不会积压。</div></div>
+                    </div>
+                </section>
+
+                <!-- 板块9：相关资讯 -->
+                <section id="相关资讯">
+                    <h2 class="section-title">相关资讯</h2>
+                    <div>
+                        <div class="news-item">
+                            <div class="news-date">2026-11-07</div>
+                            <div class="news-content"><h4>《迷雾档案·第三季》第 6 集上线，收视率创本季新高</h4><p>第 6 集“消失的访客”更新后，平台内讨论量单日突破 1.2 万条，悬疑类目排名升至第一。</p></div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">2026-11-06</div>
+                            <div class="news-content"><h4>独立短片实验室推出“城市回声”主题季</h4><p>本周起连续四周上线以城市声音为灵感的短片，首期《回声》《末班地铁》已可观看。</p></div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">2026-11-05</div>
+                            <div class="news-content"><h4>《城市观察者》第七集聚焦菜场改造，社区议题讨论升温</h4><p>纪录片播出后，多个社区论坛出现关于菜场空间设计的讨论，节目组发布补充访谈。</p></div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">2026-11-04</div>
+                            <div class="news-content"><h4>《代码与荒野》全 6 集完结，限时回看开放至 11 月 20 日</h4><p>制作方宣布完结后开放两周限时回看，并发布幕后制作特辑。</p></div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">2026-11-03</div>
+                            <div class="news-content"><h4>知识问答·冬季场公布决赛名单，本周日直播</h4><p>六位答主晋级决赛，赛制新增“抢答风险题”环节，决赛将在 11 月 10 日 20:00 直播。</p></div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-date">2026-11-01</div>
+                            <div class="news-content"><h4>深夜放映室上线《夜航》4K 修复版</h4><p>经典黑白电影《夜航》完成 4K 修复，新增导演评论音轨，可在深夜放映室观看。</p></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 板块10：相关推荐 -->
+                <section id="相关推荐">
+                    <h2 class="section-title">相关推荐</h2>
+                    <p class="section-sub">延伸方向词与具体条目索引。</p>
+                    <div class="tag-index">
+                        <a href="/#精选推荐">悬疑短剧周更清单</a>
+                        <a href="/#精选推荐">纪录片沉浸片单</a>
+                        <a href="/#精选推荐">独立短片实验季</a>
+                        <a href="/#最新更新">美食探店合集</a>
+                        <a href="/#最新更新">城市观察系列</a>
+                        <a href="/#深度解析">高密度叙事分析</a>
+                        <a href="/#用户评论">观众口碑对比</a>
+                        <a href="/#热门榜单">近 7 天热门条目</a>
+                    </div>
+                </section>
+
+                <!-- 板块11：补充板块 - 热门榜单 -->
+                <section id="热门榜单">
+                    <h2 class="section-title">热门榜单 · 近 7 天</h2>
+                    <p class="section-sub">基于播放完成率、收藏与互动量的综合排序。</p>
+                    <ul class="list-compact">
+                        <li><span class="rank-num">1</span><span class="rank-title">迷雾档案·第三季</span><span class="rank-score">热度 9.8</span></li>
+                        <li><span class="rank-num">2</span><span class="rank-title">城市观察者</span><span class="rank-score">热度 9.5</span></li>
+                        <li><span class="rank-num">3</span><span class="rank-title">街角美食家</span><span class="rank-score">热度 9.2</span></li>
+                        <li><span class="rank-num">4</span><span class="rank-title">代码与荒野</span><span class="rank-score">热度 9.0</span></li>
+                        <li><span class="rank-num">5</span><span class="rank-title">独立短片实验室</span><span class="rank-score">热度 8.7</span></li>
+                        <li><span class="rank-num">6</span><span class="rank-title">知识问答·冬季场</span><span class="rank-score">热度 8.5</span></li>
+                        <li><span class="rank-num">7</span><span class="rank-title">深夜放映室·夜航</span><span class="rank-score">热度 8.2</span></li>
+                    </ul>
+                </section>
+
+                <!-- 板块12：补充板块 - 条目时间线（选做，增加板块数） -->
+                <section id="条目时间线">
+                    <h2 class="section-title">条目时间线 · 近 30 天</h2>
+                    <ul class="list-compact">
+                        <li><span class="item-name">10-10</span><span class="item-desc">《代码与荒野》首播</span><span class="item-date">已完结</span></li>
+                        <li><span class="item-name">10-18</span><span class="item-desc">《迷雾档案·第三季》开播</span><span class="item-date">更新至第 6 集</span></li>
+                        <li><span class="item-name">10-25</span><span class="item-desc">《城市观察者》第七集上线</span><span class="item-date">11-05 更新</span></li>
+                        <li><span class="item-name">11-01</span><span class="item-desc">《夜航》4K 修复版上线</span><span class="item-date">可回看</span></li>
+                        <li><span class="item-name">11-06</span><span class="item-desc">独立短片实验室新季</span><span class="item-date">每周六更新</span></li>
+                        <li><span class="item-name">11-10</span><span class="item-desc">知识问答冬季场决赛</span><span class="item-date">20:00 直播</span></li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- 右：辅助栏 -->
+            <aside class="sidebar" aria-label="辅助信息">
+                <div class="sidebar-panel">
+                    <h3>本周热榜</h3>
+                    <ul class="rank-list">
+                        <li><span class="rank-num">1</span><span class="rank-title">迷雾档案·第三季</span><span class="rank-score">9.8</span></li>
+                        <li><span class="rank-num">2</span><span class="rank-title">城市观察者</span><span class="rank-score">9.5</span></li>
+                        <li><span class="rank-num">3</span><span class="rank-title">街角美食家</span><span class="rank-score">9.2</span></li>
+                        <li><span class="rank-num">4</span><span class="rank-title">代码与荒野</span><span class="rank-score">9.0</span></li>
+                        <li><span class="rank-num">5</span><span class="rank-title">独立短片实验室</span><span class="rank-score">8.7</span></li>
+                    </ul>
+                </div>
+                <div class="sidebar-panel">
+                    <h3>更新流</h3>
+                    <ul class="update-feed">
+                        <li>今天 09:30 · 迷雾档案 S3E6</li>
+                        <li>昨天 21:10 · 街角美食家 E4</li>
+                        <li>11-06 · 独立短片实验室 新 2 部</li>
+                        <li>11-05 · 城市观察者 E7</li>
+                        <li>11-04 · 代码与荒野 完结</li>
+                    </ul>
+                </div>
+                <div class="sidebar-panel">
+                    <h3>编辑私藏</h3>
+                    <ul class="update-feed">
+                        <li>《代码与荒野》全 6 集</li>
+                        <li>《夜航》4K 修复版</li>
+                        <li>《城市观察者》全 8 集</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- 页尾 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span style="font-size:1.4rem;font-weight:700;color:#fff;">91精选网站</span>
+                    <p>汇聚悬疑剧场、纪录片、独立短片与深度解析，提供可搜索的精选内容条目与观看决策参考。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>内容频道</h4>
+                    <ul>
+                        <li><a href="/#精选推荐">精选推荐</a></li>
+                        <li><a href="/#最新更新">最新更新</a></li>
+                        <li><a href="/#分类入口">分类入口</a></li>
+                        <li><a href="/#深度解析">深度解析</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>发现</h4>
+                    <ul>
+                        <li><a href="/#用户评论">用户评论</a></li>
+                        <li><a href="/#相关资讯">相关资讯</a></li>
+                        <li><a href="/#相关推荐">相关推荐</a></li>
+                        <li><a href="/#热门榜单">热门榜单</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="/#领域概览">领域概览</a></li>
+                        <li><a href="/#体验指南">体验指南</a></li>
+                        <li><a href="/#faq">常见问题</a></li>
+                        <li><a href="/#条目时间线">条目时间线</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 91精选网站 · 内容聚合展示</span>
+                <span>部分内容为示例数据，仅用于展示页面结构</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 轻量内联脚本：分类筛选 + 搜索反馈 -->
+    <script>
+        (function() {
+            // 分类筛选（模拟筛选卡片，仅做视觉反馈与提示）
+            const chips = document.querySelectorAll('#categoryChips .chip');
+            const feedback = document.getElementById('filterFeedback');
+            const cards = document.querySelectorAll('#精选推荐 .card');
+            chips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    chips.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.dataset.filter;
+                    if (filter === 'all') {
+                        cards.forEach(card => card.style.display = '');
+                        feedback.textContent = '显示全部精选内容。';
+                    } else {
+                        let count = 0;
+                        cards.forEach(card => {
+                            const tags = card.querySelectorAll('.tag');
+                            let match = false;
+                            tags.forEach(tag => {
+                                if (tag.textContent.includes(filter)) match = true;
+                            });
+                            if (match) {
+                                card.style.display = '';
+                                count++;
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        feedback.textContent = count > 0 ? `已筛选“${filter}”相关条目，共 ${count} 条。` : `暂无“${filter}”相关条目。`;
+                    }
+                });
+            });
+
+            // 搜索功能：简单在页面内查找文本，并显示反馈
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const filterFeedback = document.getElementById('filterFeedback');
+
+            function performSearch() {
+                const query = searchInput.value.trim();
+                if (!query) {
+                    filterFeedback.textContent = '请输入搜索词。';
+                    return;
+                }
+                // 简单查找页面内可见文本
+                const bodyText = document.body.innerText;
+                if (bodyText.includes(query)) {
+                    filterFeedback.textContent = `找到包含“${query}”的内容，请浏览页面高亮区域或使用分类筛选。`;
+                    // 尝试滚动到第一个匹配元素
+                    const allElements = document.querySelectorAll('h2, h3, .card-title, .item-name, .news-content h4, .faq-item summary');
+                    for (let el of allElements) {
+                        if (el.textContent.includes(query)) {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            break;
+                        }
+                    }
+                } else {
+                    filterFeedback.textContent = `未找到“${query}”相关内容，请尝试其他关键词。`;
+                }
+            }
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch();
+                }
+            });
+        })();
+    </script>
+</body>
+                              </html>
